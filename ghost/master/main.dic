@@ -44,18 +44,18 @@ OnBoot
 
 OnGhostChanged {OnBoot} //For reloading
 
-OnShellChanged
-{
-	"\p[2]\s[-1]\![move,--x=0,--y=0,--base=0,--option=ignore-sticky-window]\![set,balloonoffset,0,-300]"
-	--
-	"\1\s[-1]\![move,--x=0,--y=0,--base=0,--option=ignore-sticky-window]\![set,balloonoffset,-350,-150]"
-	--
-	"\0\s[0]"
-	--
-	"%(poke) %(reference0)"
-	"new shell,\w4 new %(poke)"
-	"Deadly Precision"
-}
+// OnShellChanged
+// {
+	// "\p[2]\s[-1]\![move,--x=0,--y=0,--base=0,--option=ignore-sticky-window]\![set,balloonoffset,0,-300]"
+	// --
+	// "\1\s[-1]\![move,--x=0,--y=0,--base=0,--option=ignore-sticky-window]\![set,balloonoffset,-350,-150]"
+	// --
+	// "\0\s[0]"
+	// --
+	// "%(poke) %(reference0)"
+	// "new shell,\w4 new %(poke)"
+	// "Deadly Precision"
+// }
 
 OnShellRandom
 {
@@ -78,6 +78,13 @@ OnFirstBoot
 	mysterynum = RAND(10)
 	truename = maketruename
 	nicknames = IARRAY
+	
+	RandomShells = 0
+	SetNextShellChange
+	gesture = IARRAY
+	ShellRotationIndex = 0
+	ShellRotationExcluded = IARRAY
+	ShellRotationChoosing = 0
 
 	_rand = RAND(30) + 1
 
@@ -508,10 +515,17 @@ On_tamaExit
 
 OnInitialize
 {
+	SetNextShellChange
 	ErrorsToPush.level = IARRAY
 	ErrorsToPush.description = IARRAY
 	if reference0 == "reload" && TamaHWND != ""; SETTAMAHWND(TamaHWND)
 	else; TamaHWND = ""
+	
+	if !ISVAR("RandomShells"); RandomShells = 0
+	gesture = IARRAY
+	if !ISVAR("ShellRotationIndex"); ShellRotationIndex = 0
+	if !ISVAR("ShellRotationExcluded"); ShellRotationExcluded = IARRAY
+	ShellRotationChoosing = 0
 }
 
 OnDestroy
@@ -907,22 +921,7 @@ Mangler.Rare.Space
 
 Mangler.Rare.Shout
 {
-	_input = _argv[0]
-	
-	if " " !_in_ _input; _input + "!"
-	else
-	{
-		_input = SPLIT(_input," ")
-		_output = ""
-		
-		foreach _input; _in
-		{
-			if _output != ""; _output += " "
-			if STRLEN(_in) > 0; _output += _in + "!"
-			else; _output += " "
-		}
-		_output
-	}
+	REPLACE(_argv[0]," ","! ") + "!"
 }
 
 Mangler.Rare.Quotes
@@ -1000,4 +999,195 @@ AI_Graphs : array
 	"RandomTalk,importantitem,Title,Suffix,killer,trait"
 	"that,doer_of_things,thinkabout,bodypart,name1,name2"
 	"creature,object,food,flavor,cuts,processed"
+}
+
+
+OnMouseGesture
+{
+	if !ISVAR("gesture"); gesture = IARRAY
+	if reference5 == "end"
+	{
+		if ShellRotationChoosing
+		{
+			foreach gesture; _g
+			{
+				if _g == "circle.cw"
+				{
+					ShellRotationIndex++
+					OnShellRotationChoose
+				}
+				elseif _g == "circle.ccw"
+				{
+					ShellRotationIndex--
+					OnShellRotationChoose
+				}
+			}
+			
+			_gesture = TOSTR(gesture)
+			gesture = IARRAY
+			
+			if "left,right,left,right" _in_ _gesture
+			{
+				_shell = InstalledShells[ShellRotationIndex]
+				if ASEARCH(_shell,ShellRotationExcluded) == -1
+				{
+					ShellRotationExcluded ,= _shell
+					LOGGING("ShellRotationExcluded: %(ShellRotationExcluded)")
+				}
+				else
+				{
+					_elements = ASEARCHEX(_shell,ShellRotationExcluded)
+					for _i = ARRAYSIZE(_elements) - 1; _i >= 0; _i-- //Goes from the end of the list to the start, so the elements stay in the same positions while we erase
+					{
+						_current = _elements[_i]
+						ShellRotationExcluded[_current] = IARRAY
+					}
+				}
+				LOGGING("ShellRotationExcluded: %(ShellRotationExcluded)")
+				OnShellRotationChoose
+			}
+		}
+		else
+		{
+			_gesture = TOSTR(gesture)
+			gesture = IARRAY
+			
+			if _gesture == "up,right_down,up"; OnShellRotationToggle
+			elseif _gesture == "left,down,right,left,down,right"; OnShellRotationStart
+		}
+		
+	}
+	else; gesture ,= reference5
+}
+
+OnShellRotationToggle
+{
+	if RandomShells == 0
+	{
+		RandomShells = 1
+		
+		"sparkles mysteriously"
+		"picks my own clothes"
+		"rotates"
+		"full of power"
+	}
+	else
+	{
+		RandomShells = 0
+		
+		"neatly combed"
+		"dressed up all fancy"
+		"holds still"
+		"smiles politely for the camera"
+	}
+}
+
+OnShellRotationStart
+{
+	ShellRotationChoosing = 1
+	ShellRotationIndex = 0
+	if !ISVAR("ShellRotationExcluded"); ShellRotationExcluded = IARRAY
+	OnShellRotationChoose
+}
+
+OnShellRotationChoose
+{
+	if ShellRotationIndex < 0; ShellRotationIndex = ARRAYSIZE(InstalledShells) - 1
+	if ShellRotationIndex >= ARRAYSIZE(InstalledShells); ShellRotationIndex = 0
+	
+	_shell = InstalledShells[ShellRotationIndex]
+	
+	if ASEARCH(_shell,ShellRotationExcluded) != -1
+	{
+		"\f[strike,1]"
+	}
+	--
+	_shell
+}
+
+OnBalloonTimeout
+{
+	OnBalloonClosed
+}
+
+OnBalloonBreak
+{
+	OnBalloonClosed
+}
+
+OnBalloonClose
+{
+	OnBalloonClosed
+}
+
+OnBalloonClosed
+{
+	ShellRotationChoosing = 0
+}
+
+On_installedshellname
+{
+	InstalledShells = reference
+}
+
+OnMinuteChange
+{
+	if !ISVAR("NextShellChange"); SetNextShellChange
+	if RandomShells && (GETSECCOUNT - NextShellChange >= 0)
+	{
+		SetNextShellChange
+		"\![get,property,OnGetShellCoords,currentghost.scope(0).rect]"
+		--
+		OnShellChangeStart
+		
+	}
+}
+
+SetNextShellChange
+{
+	NextShellChange = GETSECCOUNT + ((RAND(50) + 11) * 60)
+}
+
+OnShellChangeStart
+{
+	_acceptableshells = InstalledShells
+	_i = ASEARCH(SHIORI3FW.ShellName,_acceptableshells)
+	if _i != -1; _acceptableshells[_i] = IARRAY
+	
+	foreach ShellRotationExcluded; _excluded_shell
+	{
+		_i = ASEARCH(_excluded_shell,_acceptableshells)
+		if _i != -1; _acceptableshells[_i] = IARRAY
+	}
+	if ARRAYSIZE(_acceptableshells) <= 1; return
+	
+	//_acceptableshells
+	"\![change,shell,%(ANY(_acceptableshells))]"
+}
+
+OnGetShellCoords
+{
+	ShellChangeCoords = (reference0[0],reference0[1])
+}
+
+OnShellChanging
+{
+	"\![get,property,OnGetShellCoords,currentghost.scope(0).rect]"
+}
+
+OnShellChanged
+{
+	"\0\s[-1]\![move,--x=%(ShellChangeCoords[0]),--y=%(ShellChangeCoords[1]),--base=primaryscreen,--option=ignore-sticky-window]"
+	--
+	"\p[2]\s[-1]\![move,--x=0,--y=0,--base=0,--option=ignore-sticky-window]\![set,balloonoffset,0,-300]"
+	--
+	"\1\s[-1]\![move,--x=0,--y=0,--base=0,--option=ignore-sticky-window]\![set,balloonoffset,-350,-150]"
+	--
+	"\0\s[0]"
+	--
+	"%(poke) %(reference0)"
+	"new shell,\w4 new %(poke)"
+	"Deadly Precision"
+	
+	ShellChangeCoords = IARRAY
 }
