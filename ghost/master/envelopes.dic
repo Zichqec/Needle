@@ -312,8 +312,64 @@ Title
 	
 	
 	"Jester"
-	"The Collecter of %(creatures), "
+	"The Collecter of %(creatures),"
 	"Unsalted"
+	
+	"Grade A"
+	"%(LetterGrade)"
+	"Cash Money"
+	"%(number)% %(pure)"
+	
+	"%(ANY('Artificially ','Naturally ','Naturally And Artificially ','Unnaturally ',''))%(ANY('Unf','F'))lavored"
+}
+
+pure
+{
+	"Pure"
+	"Salty"
+	"Fresh"
+	"Expired"
+	"Filtered"
+	"Recycled"
+	"Artificial"
+	"Bored"
+	"Organic"
+	"Meaty"
+	"'Hell Yeah'"
+	"Yeasted"
+	"Hungry"
+	"Charged"
+	"Battery-Powered"
+	"Purified"
+	"Aged"
+	"Hydroelectric"
+	"Dusted"
+	"Percentage-Based"
+	"Sick"
+	"Shaded"
+	"Grumpy"
+	"Capitalized"
+	"Nicknamed"
+	"Powerful"
+	"Pokeable"
+	"Flavorful"
+	"Frozen"
+	"Raw"
+	"Edible"
+	"Cooked"
+	"Hydrated"
+}
+
+LetterGrade
+{
+	_l = ANY("A,B,C,D,F")
+	if RAND(2)
+	{
+		_l += ANY("+,-")
+		if _l == "A+" && RAND(2); _l += "+"
+		if _l == "F-" && RAND(2); _l += "-"
+	}
+	_l
 }
 
 Suffix
@@ -359,7 +415,7 @@ Suffix
 	}
 	"the %(trait) One"
 	"the One That %(that)"
-	"%(doer_of_things)"
+	"%(doer_of_things)" //TODO i need to figure out what's going on with the commas because I really want to do some comma formatted ones
 	"scourge of the skies" //TODO would love for this to be formatted with a comma, but...
 }
 
@@ -2560,7 +2616,9 @@ number
 {
 	if RAND(2)
 	{
-		RAND(101)
+		_n = RAND(101)
+		if _n == 69; _n++
+		_n
 	}
 	else
 	{
@@ -2591,6 +2649,120 @@ number
 		"zero"
 		"%(mysterynum)"
 	}
+}
+
+property
+{
+	"burning"
+	"freezing"
+	"cutting"
+	"shocking"
+	"poking"
+	"bopping"
+	"swording"
+	"needling"
+	"erupting"
+	"beheading"
+	"skinning"
+	"SCREAMING"
+	"bunny hop"
+	"jab jab stab jab"
+	"nonlethal"
+	"very extremely lethal"
+	"makes funny hit sound"
+	"squeaky hammer noise"
+	"teleports you 3 feet to the left" //← "hell yeah, that's a good one"
+	"meowing"
+	"twisting"
+	"squashing"
+	"purring"
+	"%(bodypart)"
+	"bouncing"
+	"super sharp"
+	"biting"
+	"magicking"
+	"important"
+	"impressive"
+	"sparkly"
+	"fancy"
+	"unbreakable"
+	"able-to-slay-a-specific-dragon"
+	"brick"
+	"swinging"
+	"sinking"
+	"floating"
+	"inspiring"
+	"cheesy"
+	"smoking"
+	"non-smoking"
+	"flavorful"
+	"soul trapping"
+	"chewing"
+}
+
+streamvid
+{
+	"#real glass arrowheads"
+	"the dirtiest carpet in the world into the cleanest carpet in my garage"
+	"a HUGE mess"
+	"sooooooo many people mad for no reason"
+	"lab grown chats to bolster the chat army"
+	"rat treats"
+	"armless elbows"
+	"the normalest cookies"
+	"a brand new language that you'll be expected to speak from now on"
+	"FIRE"
+	"an example of this piece of paper"
+	"uuuhhhhh uuuuhhhhmmmmm i forget"
+	"100% pure ethanol"
+	"dust bunnies"
+	"questionable choices"
+	"ourselves suffer for #content"
+	"cling wrap"
+	"all of you hungry by talking about food"
+	"a computer from scratch"
+	"a new law"
+	"\c[char,1]... uh... we'll figure it out!"
+	"out like bandits as we crawl the vapor store with mom's credit card"
+	"stickless popsicles"
+	"off with some poor sap's wallet"
+	"ourselves into zombies"
+	"$100 turn into $1 with one quick and easy trick!"
+	"gelatin"
+	"a new squidly friend"
+	"pasta"
+	"perfectly placed holes in That New Jacket She Just Got"
+	"up. it's time for you to apologize."
+}
+
+runaway
+{
+	"run into the woods never to be seen again"
+	"sneak into your pillowcase and wait"
+	"throw myself through the window"
+	"roll down the nearest grassy hill"
+	"take a swim in the soup pot"
+	"embroider the ceiling"
+	"call mom to take me home"
+	"flip you like a burger patty flip flip flip"
+	"lose track of who you are to me since it's been so long since we talked, and not like ""hi how are you i'm good"" talk, but really talked about really real stuff that matters"
+	"juggle 8 pans at once"
+	"eat your %(bodypart)"
+	"hire a private investigator to track you down and ask you why you didn't"
+	"make the moon explode"
+	"send a rat army to your house"
+	"go and cry to my friends"
+	"stitch together your socks"
+	"poke a hole in your favorite shoe"
+	"lay around and feel dejected"
+	"eat an insect leg"
+	"hide in the silverware drawer"
+	"pour your tea all over the floor"
+	"find a beetle that will be a BETTER FRIEND THAN YOU"
+	"lose that $100 bet"
+	"POP like a popcorn"
+	"scream like a kettle"
+	"ruin gravy for you forever"
 }
 
 //.

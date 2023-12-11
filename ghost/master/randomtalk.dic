@@ -768,7 +768,7 @@ RandomTalk : nonoverlap_pool
 	"this just in:\w4 a needle in your head PROVEN to increase PRODUCTIVITY,\w4 but being PRODUCTIVE is BORING"
 	"i love you lumpy asymmetrical round squares"
 	
-	//1.1.1 (?)
+	//1.1.1
 	"i have allergies"
 	
 	"are y'all talking about gumballs or what, i wasn't listening"
@@ -925,7 +925,7 @@ RandomTalk : nonoverlap_pool
 	"marbles are the new skeletons"
 	"what happened to u\w8\w8\w8\w8\nand me"
 	
-	"\C\n\nalso: are eggs fruit\![set,balloontimeout,15000]"
+	"\C\n\nalso: are eggs fruit"
 	
 	"itchy rain sounds awful, but i'll take a sprinkle of the glee, thanks"
 	
@@ -961,14 +961,14 @@ RandomTalk : nonoverlap_pool
 	"how does one become chocolate dipped"
 	"sometimes you just have to lay on the ground and tolerate reality"
 	"neither too hot nor too cold, but a secret third thing:\w8\w8\n\ntoo mild"
-	"\C\n\nsometimes you have to wonder about these things\![set,balloontimeout,15000]"
+	"\C\n\nsometimes you have to wonder about these things"
 	"why do you push yourself when your brain feels like it got stepped on"
 	"jumping jacks"
 	"i finally figured it out:\w8\w8\n\naliens"
-	"\C\n\n%(italics)Coming Soon To A Theater Near You!\![set,balloontimeout,15000]"
+	"\C\n\n%(italics)Coming Soon To A Theater Near You!"
 	"I want to be able to enjoy the soap, but I don't want to follow what the labels tell me!"
 	"it is a face and a cube, %(italics)and%(italicsoff) a kitchenware brand"
-	"\C\n\nit's content what can i say\![set,balloontimeout,15000]"
+	"\C\n\nit's content what can i say"
 	"right right buzz buzz gotta get the %(bodypart)"
 	"NNN: Needle News Network\w8\nBREAKING NEWS: Needle being sued by Needle for usage of the term ""%(poke)""! More at %(hour12ex + 2)."
 	"NNN: Needle News Network\w8\nThis just in: People are falling over themselves to get %(creature) %(cuts) down at Needle's Emporium! Join the swarm now and get it before it's gone!"
@@ -1010,7 +1010,7 @@ RandomTalk : nonoverlap_pool
 	
 	"smelling fast food outside of a supercenter at night is the ultimate state of being"
 	"accept my praise like fishcakes"
-	"\_a[https://gallathegalla.github.io/gtg-ghosts/ghosts/reviews/needle]leave me a review\_a"
+	"\_a[OnLeaveReview]leave me a review\_a"
 	"what do you want, sir, what do you want"
 	"nose blowing noises"
 	"the sudden and unquenchable despair of a thousand people in the audience"
@@ -1037,11 +1037,123 @@ RandomTalk : nonoverlap_pool
 	"Needle Premium Subscription, now available for $11.11 a month"
 	
 	
+	//Version 1.1.2
+	"i'm itchy"
+	"there's a weevil behind the snail in my ear"
+	"i just want you to know this is being written mere hours after the last release"
+	"nyhee nyhee nyheedol"
+	"tilt to the right, wait until it pops"
+	"he got the zoomies"
+	"feeling gloomby"
+	"the careful scrape scrape scrape of a quill on paper. precious ink dwindling. the candle soon to sputter out."
+	"it probably doesn't mean anything"
+	"deer in the headlights, here in the dead lights"
+	"don't follow the floaters"
+	"throw me in the ocean, i wanna meet the mermaids"
+	"golf balls come pre %(poked), where's the fun in that"
+	"one part wheat, three parts water, %(number) parts %(bodypart), and a dash of %(red) for flavor"
+	"chop chop chop\w8\w8\w8\nsweep sweep sweep\w8\w8\w8\n\n.....\n.....\w8\w8\w8\n\ntidy"
+	"\f[align,center]<><><><><><><><><><>\n\n\n\n\w8\w8 i'm hungry \w8\w8\n\n\n\n<><><><><><><><><><>"
+	"soak it in brine, everything is better when soaked in brine"
+	"haha it got all moldy, who would have thought"
+	"be experimental"
+	"sometimes you just gotta %(poke) stuff and move on"
+	"ring ring ring ring ring"
+	"Today's Needle content sponsored by: Giant Rats. For all your vermin needs!"
+	"one of these days i'll get a good %(poke) in. just you wait and see. she won't see it coming. just just have to bide my time."
+	"i've been spotted"
+	"vroom vroom, screeeeeeeee, honk honk, vroom vroom vroom"
+	"always have a can opener on you"
+	
+	"hm hm hm peely toenails"
+	"gimme a mint"
+	"i had a good peel, u missed out"
+	"WE HAVE LIFTOFF"
+	
+	"Do Not Eat The Foil"
+	"i need a team of people i can command that are sworn to do my bidding"
+	
+	"choo choo riding the bus"
+	"i got the eggs"
+	
+	"imagine if your brain was a chalkboard and someone was using sandpaper on it"
+	"bites bites bites"
+	"entirely too many pull tabs"
+	"rolling... rolling... rolling..."
+	
+	"feel that aching?"
+	"don't tense up"
+	"the smell of the burning is sickening"
+	
+	"\![embed,OnMaze]"
+	"i suddenly understand the purpose of factorial"
+	
+	"my feeties hurt"
+	
+	"%(username) escapes ice cubes another day"
+	"it's not cool\w8\w8\w8 it's actually pretty warm"
+	"chilly chilly chilly cold"
+	"stretch your feeties"
+	"don't clench"
+	"screeeeeeeeeeeeeeee"
+	"hey can i borrow $%(RAND(1000)) from you, it's for science"
+	"i'm bleeeediiiiiiinggg"
+	"even or odd, even or odd, even or odd...\w8\w8\w8\w8\n\n%(ANY('even','odd','neither','both'))"
+	
+	"steals u steals u steals u"
+	"\f[align,center]<><><><><><><><><><>\n\n\n\n\w8\w8 %(poke) \w8\w8\n\n\n\n<><><><><><><><><><>"
+	"\f[align,center]<><><><><><><><><><>\n\n\n\n\w8\w8 i bet this would be so itchy lol \w8\w8\n\n\n\n<><><><><><><><><><>"
+	"hold a cube in your hands\w8\w8\nwatch it melt"
+	"part of a complete breakfast"
+	"shout at the sky until the clouds go away"
+	"give me power"
+	"i bet the moon is hollow inside"
+	"twist and turn, twist and turn"
+	"i'm not a bookmark"
+	"%(big)%(big)THEY'RE HERE"
+	"whispers whispers from the walls\w8\n\n%(two)whispers from the floor below\w8\n\n%(twooff)%(three)whispers in the halls"
+	"there's a demon here to see you"
+	"i wanna go fishing, someone stick me on a fish hook"
+	"do you think they're still out there?\w8\w8\n\nthe ones that were lost beneath the waves"
+	"she's here, go find a corner to hide in"
+	"throw a coin into the well\w8\w8\n\n%(italics)\f[align,right]tink\w8\w8\w8\n\n\n\f[align,center]splash!%(italicsoff)\w8\w8\w8\n\n\f[align,left]the well gremlin thanks you"
+	"maybe threads are meant for tangling thank you very much"
+	"an apple a day keeps the apples at bay"
+	"wrangle up the stars, tie them in a knot, and bury them under the mountain"
+	"if i were bigger i bet i could be classified as a dragon"
+	"throw the dice into the canyon.\w8\w8 you'll know if you rolled well."
+	"jumping jacks, bunny tracks, get enough to fill the cracks"
+	"make sure to top up before you go"
+	"rummages through my pockets for scraps of food"
+	"bushes are your mortal enemy."
+	"never miss a chance to please the floorboard spirits"
+	"you know, i almost ran away once"
+	"flour is itchy"
+	"self care tip:\w8 learn how to do self care"
+	"today's lesson:\w8 i should spend more time in the oven"
+	"they can't grab you if you're burning hot"
+	"you should smoke, otherwise nobody will know you're on fire to put you out\w8\w8\n\nunless you want to be on fire in which case more power to you"
+	"i saw a ghost out in the swamp"
+	"if a bird mocked me i'd punch it right in the beak\w8\w8\n\ndon't let birds think they're better than you"
+	"huh?\w8 sorry i was meditating"
+	"it's a good question.\w8 so what's your answer?"
+	"cat names are tricky.\w8 i don't know any yet, but i will"
+	"if i was a sword i would have the %(property) enchantment"
+	"hello chat, today we are making %(streamvid)"
+	"who's chat"
+	"remember to subscribe otherwise i'll %(runaway) ok bye"
+	"gummy rabbits gummy rabbits eat the ears first AAA THEY CAN'T HEAR"
+	"would you love me if i was flat"
+	"I'M GONNA POP\w8\w8\n\njust kidding, i'm not a balloon"
+	"spells now cost 25% less mana, buy now BUY NOW DON'T YOU WANT TO DO MAGIC %(bold)LOOK AT THESE PRICES%(boldoff) wait magic isn't real lol\e:chain=chain.magic"
+	
+	"where branch"
+	
 	//Content that is locked off unless the user allows motion, just to be on the safe side
 	parallel MotionEnabledDialogues
 
 	"\f[height,-3]made by galla and zichqec\w8\nsome portions inspired by galla's cat\w8\n%(mysterynum) %(creatures) were %(poked) in the making of this ghost"
-	"Version 1.1.1" //If you're peeking in this file - yes, this is the version number of your current needle. No, there is no easier way to find this information. :)
+	"Version 1.1.2" //If you're peeking in this file - yes, this is the version number of your current needle. No, there is no easier way to find this information. :)
 }
 
 MotionEnabledDialogues : array_pool
@@ -1119,6 +1231,11 @@ chain.chicken_noodle_night
 	"chimken"
 	"chimken............"
 	"%(small):chicken_noodle_soup.gif:%(regsize)\![raise,OnNewTalkInterval]\e:chain=end"
+}}CHAIN
+
+chain.magic
+{{CHAIN
+	"what do you mean magic is real!? since when!?\e:chain=end"
 }}CHAIN
 
 makestatic : all
@@ -1770,7 +1887,6 @@ OnTakeItBack : all
 	{
 		"\c[char,1,0]\w1"
 	}
-	"\![set,balloontimeout,15000]"
 }
 
 OnMysteryNumeral : all
@@ -1789,7 +1905,7 @@ OnMysteryNumeral : all
 
 OnLifeHack : nonoverlap
 {
-	"\C\n\n\![set,balloontimeout,15000]*"
+	"\C\n\n*"
 	--
 	"For entertainment purposes only"
 	"Results may vary"
@@ -1811,11 +1927,59 @@ OnMetBalloon
 	"\j[https://gallathegalla.github.io/gtg-ghosts/ghosts/balloons]"
 }
 
+OnLeaveReview
+{
+	"\j[https://gallathegalla.github.io/gtg-ghosts/ghosts/reviews/needle]"
+}
+
 OnSelfDestruct : all
 {
 	for _i = 0; _i < TOINT(reference0); _i++
 	{
 		_top = 31 - _i
 		"\c[char,1,%(RAND(_top))]\w%(RAND(9) + 1)"
+	}
+}
+
+OnMaze : all
+{
+	_up = "↑\_l[@-1em,@-1em]"
+	_down = "↓\_l[@-1em,@1em]"
+	_left = "←\_l[@-2em]"
+	_right = "→"
+	
+	if RAND(2)
+	{
+		_rand = RAND(15) + 5
+		
+		for _i = 0; _i < _rand; _i++
+		{
+			_d = RAND(4)
+			_l = RAND(10) + 1
+			
+			for _ii = 0; _ii < _l; _ii++
+			{
+				if _d == 1; _up
+				elseif _d == 2; _down
+				elseif _d == 3; _left
+				else; _right
+			}
+		}
+	}
+	else
+	{
+		_rand = RAND(200) + 1
+		
+		"\_l[%(RAND(100)),%(RAND(100))]"
+		
+		for _i = 0; _i < _rand; _i++
+		{
+			_d = RAND(4)
+			
+			if _d == 1; _up
+			elseif _d == 2; _down
+			elseif _d == 3; _left
+			else; _right
+		}
 	}
 }
