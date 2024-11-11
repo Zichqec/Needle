@@ -357,6 +357,12 @@ OnOtherOverlap : all
 	_unpokeunpoke = SPLIT(reference.raw[1],C_BYTE1)
 	_newpoke = IARRAY
 	_command = ""
+	_dressups = ""
+	foreach CurrentDressups; _dressup
+	{
+		if _dressups != ""; _dressups += C_BYTE1
+		_dressups += _dressup
+	}
 
 	foreach _pokepoke; _poke
 	{
@@ -383,13 +389,26 @@ OnOtherOverlap : all
 				_final += _char[_i]
 			}
 
-			_command += "\![raiseother,%(_final),OnNeedlePoke,%(_num),""%(SHIORI3FW.ShellName)""]"
+			_command += "\![raiseother,%(_final),OnNeedlePoke,%(_num),""%(SHIORI3FW.ShellName)"",""%(_dressups)""]"
 		}
 	}
 	if _command != ""
 	{
 		"%(_command)"
 		"%(poke)"
+	}
+}
+
+OnNotifyDressupInfo
+{
+	CurrentDressups = IARRAY
+	
+	foreach reference; _ref
+	{
+		if _ref[4,C_BYTE1] == "1"
+		{
+			CurrentDressups ,= "%(_ref[1,C_BYTE1])" + C_BYTE1 + "%(_ref[2,C_BYTE1])"
+		}
 	}
 }
 
@@ -420,7 +439,7 @@ OnNeedlePokeChoice : all
 	"\![*]\q[Poke something,OnPokePoke]\n"
 	"\![*]\q[Poke something,OnPokePoke]\n"
 	"\n"
-	"\![*]\q[Nevermind,OnNeedleMenu]\n\n"
+	"\![*]\q[Nevermind,cancel]\n\n"
 
 	"%(hour12ex):%(minute) %(('AM','PM')[ampm])"
 }
@@ -675,8 +694,9 @@ NameMangler
 			_common_mangles[LSO] = IARRAY
 		}
 		LOGGING("_func: %(_func)")
+		LOGGING("before: %(_input)")
 		_input = EVAL("%(_func)(_input)")
-		LOGGING("_input: %(_input)")
+		LOGGING("after: %(_input)")
 		LOGGING
 	}
 	_input
@@ -710,9 +730,8 @@ Mangler.Common.Lower
 	_input
 }
 
-Mangler.Uncommon.1337
+Mangler.Rare.1337
 {
-	if RAND(2) == 0; {_argv[0]; return}
 	_input = _argv[0]
 
 	_input = REPLACE(_input,"A","4",1)
@@ -873,18 +892,13 @@ Mangler.Uncommon.Question
 	_input = _argv[0]
 	_output = ""
 	_r = RAND(3)
-	LOGGING("_r: %(_r)")
 	if _r == 1
 	{
 		_output = _input
-		LOGGING("If...")
 		_num = RAND(5) + 1
-		LOGGING("_num: %(_num)")
 		for _i = 0; _i < _num; _i++
 		{
-			LOGGING("Loop...")
 			_output = INSERT(_output,RAND(STRLEN(_input)),"?")
-			LOGGING("_output: %(_output)")
 		}
 	}
 	elseif _r == 2
@@ -902,7 +916,7 @@ Mangler.Rare.ToThe
 {
 	_input = _argv[0]
 
-	if _input != username; {_input; return}
+	if !NameIsStillBase(_argv[0]); {_input; return}
 
 	_output = ""
 
@@ -937,6 +951,88 @@ Mangler.Rare.Double
 	_char = SUBSTR(_input,_rand,1)
 	
 	REPLACE(_input,_char,_char + _char)
+}
+
+Mangler.Rare.NATOPhoneticAlphabet
+{
+	_input = _argv[0]
+	if !NameIsStillBase(_argv[0],"ignore case"); {_input; return}
+	
+	_output = ""
+	for _i = 0; _i < STRLEN(_input); _i++
+	{
+		_let = SUBSTR(_input,_i,1)
+		_num = CHRCODE(_let)
+		if _let == " "; continue
+		if _i > 0; _output += " "
+		
+		_case = -1
+		case _num
+		{
+			when 65-90
+			{
+				_case = 1
+				_num -= 65
+			}
+			when 97-122
+			{
+				_case = 0 //lowercase because LOWER COMES FIRST no it doesnt, why ASCII
+				_num -= 97
+			}
+		}
+		
+		if _case == -1; {_output += _let; continue}
+		
+		_output += ToCase(NATOPhoneticAlphabet[_num],_case)
+	}
+	_output
+}
+
+NATOPhoneticAlphabet : array
+{
+	"Alpha"
+	"Bravo"
+	"Charlie"
+	"Delta"
+	"Echo"
+	"Foxtrot"
+	"Golf"
+	"Hotel"
+	"India"
+	"Juliett"
+	"Kilo"
+	"Lima"
+	"Mike"
+	"November"
+	"Oscar"
+	"Papa"
+	"Quebec"
+	"Romeo"
+	"Sierra"
+	"Tango"
+	"Uniform"
+	"Victor"
+	"Whiskey"
+	"X-ray"
+	"Yankee"
+	"Zulu"
+}
+
+NameIsStillBase
+{
+	_input = _argv[0]
+	_called_directly = 0
+	if  ASEARCH("NameMangler",GETCALLSTACK) == -1; _called_directly = 1
+	
+	_username = username
+	if _argv[1] == "ignore case"
+	{
+		_username = TOLOWER(_username)
+		_input = TOLOWER(_input)
+	}
+	
+	if _input == _username || _called_directly; 1
+	else; 0
 }
 
 // On_getaistate
@@ -1185,9 +1281,65 @@ OnShellChanged
 	--
 	"\0\s[0]"
 	--
-	"%(poke) %(reference0)"
-	"new shell,\w4 new %(poke)"
-	"Deadly Precision"
+	if SHIORI3FW.ShellName == "Correctly Drawn Needle"
+	{
+		"have you ever considered the anatomy of a needle and what makes it tick the ideal form is often considered to be up to interpretation but the truth of the matter is that one only needs to apply simple mathematics in order to find that there is a singular needly form that unilaterally performs all functions optimally and here we will demonstrate this for all that may be in doubt and if you disagree with our assessment you will be eliminated thank you have a nice day"
+	}
+	else
+	{
+		"%(poke) %(reference0)"
+		"new shell,\w4 new %(poke)"
+		"Deadly Precision"
+	}
 	
 	ShellChangeCoords = IARRAY
+}
+
+DevWeddingLoops
+{
+	for _galla_cares_for_zi = 0; _galla_cares_for_zi >= 0; _galla_cares_for_zi++
+	{
+		for _zi_cares_for_galla = 0; _zi_cares_for_galla < 1; _zi_cares_for_galla++
+		{
+			ANY(MakeCoolGhostStuff,HaveTooManyGhostIdeas,CommitHijinks,BeFriends)
+		}
+	}
+}
+
+OnSpectrePlugin.ConfirmCalibration
+{
+	"\![raiseplugin,Spectre,OnCustomCalibrationConfirm,__NO_EXPRESSIONS__]"
+}
+
+OnSpectrePlugin.Possession
+{
+	if RAND(4) == 0
+	{
+		"i know you"
+		"thief"
+		"terrors in the night"
+		"caught red handed"
+		"%(poke) answer for your crimes\w8\w8\n\nok that's a little mean, i guess"
+		"swamp spirit,\w4 swamp spirit,\w4 come out to play\w8\w8\n\ni know i know it's a bog not a swamp,\w4 yadda yadda yadda"
+		"last time i tried to %(poke) that one, i got covered in mud"
+		"how can you be lonely you've got all %(thatmud) to keep you company"
+	}
+}
+
+OnGhostCallComplete
+{
+	OtherGhostOpen
+}
+
+OnOtherGhostBooted
+{
+	OtherGhostOpen
+}
+
+OtherGhostOpen
+{
+	if reference0 == "Noodle"
+	{
+		"noodle noodle"
+	}
 }

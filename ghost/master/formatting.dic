@@ -208,3 +208,10 @@ NumSuffix : all
 		others; "th"
 	}
 }
+
+ToCase
+{
+	if _argv[1] == 1; TOUPPER(_argv[0])
+	elseif _argv[1] == 0; TOLOWER(_argv[0])
+	else; _argv[0]
+}

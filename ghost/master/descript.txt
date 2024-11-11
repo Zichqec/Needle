@@ -6,6 +6,7 @@ type,ghost
 shiori,yaya.dll
 
 craftman,Galla & Zichqec
+craftmanw,Galla & Zichqec
 craftmanurl,https://ukagaka.zichqec.com/
 
 sakura.name,Needle
@@ -15,3 +16,4 @@ sstp.allowunspecifiedsend,0
 icon,icon.ico
 
 balloon,Needloon
+balloon,Needloon (readable)

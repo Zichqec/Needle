@@ -3,6 +3,7 @@ type,shell
 
 name,The True Needle
 craftman,Galla & Zichqec
+craftmanw,Galla & Zichqec
 craftmanurl,https://ukagaka.zichqec.com/
 
 seriko.alignmenttodesktop,free

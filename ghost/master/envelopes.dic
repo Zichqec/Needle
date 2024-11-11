@@ -2765,4 +2765,192 @@ runaway
 	"ruin gravy for you forever"
 }
 
+tmi
+{
+	"i got a huuuuuge boogie out my nosie"
+	"toenails so thick i need a circular saw to trim them"
+	"i borrowed that crusty pocket tissue from someone else's jacket"
+	"i'm growing 1 really long hair in an unexpected place"
+	"water squirted into my eye while i was brushing my teeth, and now my eye feels minty"
+	"ate spaghetti with my bare hands today"
+	"im on the potty"
+	"i gots shrimp burps"
+	"juuust ripped a scab off my forehead, it feels gross underneath\e:chain=chain.forehead_scab"
+	"dinner was left out all night, but i ate it anyway"
+	"my eyebrows are shedding"
+	"i need at least 3 bones removed"
+	"if a bandage gets wet, that's its problem, not mine"
+	"raisins... are more powerful than you think"
+	"out of toilet paper and doing nothing about it"
+	"I've been constantly tasting onion since yesterday"
+}
+
+nottalkreason
+{
+	"i'm eating dinner"
+	"i smell like shampoo"
+	"my fingies are cold"
+	"i'm painting my toenails"
+	"i saw a frog earlier"
+	"i'm making onion soup"
+	"my toenail is rough and scratchy and i don't like it"
+	"i'm looking for a mirror right now"
+	"i sniffed a buuuuuuunch of catnip"
+	"i'm practicing my backscratcher impression"
+	"dipping myself in honey takes priority"
+	"i'm figuring out how folders work"
+	"i'm, like, way infected today. idk with what."
+}
+
+othernews
+{
+	"i've just unclogged the sink"
+	"i'm a worm"
+	"that fancy necklace that was sitting on your desk?\w8 don't bother looking for it"
+	"i ate the dog's homework"
+	"i think the walls need a new coat of paint"
+	"i found a rusty nail on the floor but i don't remember where"
+	"i found a toe"
+	"hermit crabs"
+	"i've decided to become a news reporter"
+	"i don't remember what i was doing"
+	"it's time to become scissors"
+	"bubble bubble bubble blrblrblrb"
+	"it's glass breaking time\w8\w8\n\n\n\f[height,+30]CRASH"
+	"i ate the %(importantitem)"
+	"i think envelopes should be illegal" //The letter kind, not meta...
+	"i fenced off a section of the kitchen so that we know not to cross into each other's territory"
+	"i was big and strong and scared off a fly"
+	"i got lost in the woods again,\w4 please send help"
+	"i was reading a scary story and it started talking about potatoes for a really long time so i looked again and it was a gardening book, so i guess i was pretty scared"
+}
+
+sometask
+{
+	"putting duct tape all over the walls of the livingroom as though it were wallpaper"
+	"filling the basement with water so that you can use it as a swimming pool"
+	"digging up all the plants in the garden so you can get a fresh start"
+	"setting free all the air that was trapped in the tires of your car"
+	"putting new labels on all of the jars to reflect the names i gave them in a dream i had last week"
+	"taking apart the individual threads of your bedsheets so that you can check which ones are damaged to get them replaced"
+	"pouring all the coins from your change jar down the sink"
+	"setting loose the first batch of several hundred thousand beetles in order to kickstart a new local ecosystem"
+	"painting all the food in the fridge white so you can draw your own flavors on"
+	"adding all the herbs and spices in the cupboard to that soup base you started"
+	"washing all those bills you got in the mail"
+	"drilling holes into the tree outside and shoving the end pages of all your books into them so that you can have a fun guessing game to play"
+	"washing off all those chalk marks you made on the driveway earlier"
+	"reorganizing your notes in reverse alphabetical order"
+	"turning your shoes into animal puppets"
+	"poking holes in the bottom of all your apron pockets"
+	"mixing all the flour and the sugar we have in the cupboard"
+	"melting down all the keys into one super key"
+	"putting all the leftovers in the fridge into one big bowl so we can just scoop out of that"
+	"pouring out all the candy and chips onto the table so you can just grab a handful whenever you walk by"
+	"scraping all of the dried paint back into its containers for later"
+	"dismantling that cake you made last night and putting it back together with hot glue so that it's sturdier"
+	"melting all the ice so it takes up less space"
+	"pulling all the cables out of the wall and wrapping them up all nice and neat"
+	"giving your phone a bubble bath"
+	"taste testing the shower products"
+}
+
+afriend
+{
+	"a traffic light"
+	"a road cone"
+	"a bucket of paint"
+	"an old tire"
+	"a satellite dish"
+	"a door hinge"
+	"a dead flea"
+	"a fast food wrapper"
+	"a plastic fork"
+	"a stray piece of gravel"
+	"a broken zip tie"
+	"a rusty nail"
+	"a screwdriver"
+	"myself"
+	"an overturned bucket"
+	"a dropped popsicle that was half melted"
+	"a shingle that got separated from its herd"
+	"a section of the sidewalk"
+	"a broken bottle"
+	"some tangled up fishing line"
+	"an empty bag of chips (%(chipflavor) flavor)"
+}
+
+chipflavor
+{
+	"ranch"
+	"nacho cheese"
+	"salt and vinegar"
+	"dill pickle"
+	"BBQ"
+	"cheddar"
+	"honey and cheese"
+	"jalapeño"
+	"ketchup"
+	"dirt"
+	"cat hair"
+	"not chips"
+	"shrimp"
+	"original boring"
+	"sweet chili"
+	"chili lime"
+	"toothpaste"
+	"burger"
+	"wasabi"
+	"horseradish"
+	"smoke"
+	"bacon"
+	"sour cream and onion"
+	"cheese cheese and more cheese"
+	"ice cream"
+}
+
+//similar to measurement but not quite the same...
+measurewords
+{
+	"grains"
+	"leaves"
+	"drops"
+	"ticks"
+	"buckets"
+	"cups"
+	"liters"
+	"tablespoons"
+	"pounds"
+	"inches"
+	"centimeters"
+	"jules"
+	"specks"
+	"sheaves"
+	"reams"
+	"skeins"
+}
+
+theinternetbill
+{
+	"the internet bill"
+	"for the %(creature) %(cuts)"
+	"your Needle Tax"
+}
+
+thatmud
+{
+	"that mud"
+	"those sticks"
+	"four hundred of us"
+	"the ants in the world"
+	"the maggots"
+	"the bog music"
+	"those fish, okay maybe it's just 1 fish but still, all those fish"
+	"this time to construct yourself some friends out of mud and leaves"
+	"these cool possession powers that let you force people"
+	"like 1,000 more years to dream about stuff"
+	"these memories"
+	"of us— nah i'm just kidding\e"
+}
+
 //.

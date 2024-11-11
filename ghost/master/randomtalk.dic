@@ -1,7 +1,16 @@
 OnAiTalk
 {
-	if SHIORI3FW.IsChain; ChainTalk
-	else; RandomTalk
+	_talk = ""
+	if SHIORI3FW.IsChain; _talk = ChainTalk
+	else; _talk = RandomTalk
+	if SHIORI3FW.ShellName == "Blushie"
+	{
+		if ASEARCH("uwu" + C_BYTE1 + "on/off",CurrentDressups) != -1
+		{
+			_talk = "uwu " + _talk + " uwu"
+		}
+	}
+	_talk
 }
 
 RandomTalk : nonoverlap_pool
@@ -1005,7 +1014,7 @@ RandomTalk : nonoverlap_pool
 	"the sky is a good place to get lost"
 	"just a nibble off the top"
 	"fraying fraying fraying always fraying never staying"
-	"shooting stars are nastly little creatures"
+	"shooting stars are nasty little creatures"
 	"do you ever ask yourself to dance"
 	
 	"smelling fast food outside of a supercenter at night is the ultimate state of being"
@@ -1060,7 +1069,7 @@ RandomTalk : nonoverlap_pool
 	"sometimes you just gotta %(poke) stuff and move on"
 	"ring ring ring ring ring"
 	"Today's Needle content sponsored by: Giant Rats. For all your vermin needs!"
-	"one of these days i'll get a good %(poke) in. just you wait and see. she won't see it coming. just just have to bide my time."
+	"one of these days i'll get a good %(poke) in. just you wait and see. she won't see it coming. just have to bide my time."
 	"i've been spotted"
 	"vroom vroom, screeeeeeeee, honk honk, vroom vroom vroom"
 	"always have a can opener on you"
@@ -1149,11 +1158,266 @@ RandomTalk : nonoverlap_pool
 	
 	"where branch"
 	
+	//1.1.3
+	"regrows my nose"
+	"who needs flexibility when you have CONTENT"
+	"puts some bottomless sockies on ur feeties.\w8\w8 feet tents.\e:chain=chain.feet_tents"
+	
+	"invent a swear word today"
+	"i know it doesn't %(italics)look%(italicsoff) like progress but it %(italics)is%(italicsoff) progress ok"
+	"tuck ur toesies or i'll bite them"
+	"i met The Knife once"
+	
+	"We have made the decision to categorize trees as fruit."
+	
+	"i'm gonna kick ur knees"
+	
+	"i think blackmail may already exist"
+	"concerned ???"
+	
+	"i was looking for shrimp quotes"
+	
+	"calendars should be triangular"
+	
+	"wiki editors are cool"
+	"if there was a needle wiki would you be an editor?"
+	
+	"look what can i say, they believe in free will and also murder"
+	
+	"right now my belly craves b e e f"
+	"sorry i didnt really connect my brain dots too well there"
+	
+	"engage with my cringe, it's good for ur bones"
+	"click click\c[char,7]\w8\w8\n\noop sorry, sound cut out"
+	"\_qscrub scrub scrub scrub\_q\w2\c[char,1]\w2\c[char,1]\w2\c[char,1]\w2\c[char,1]\w2\c[char,1]\w2\c[char,1]\w2\c[char,1]\w2\c[char,1]\w2\c[char,1]\w2\c[char,1]\w2\c[char,1]\w2\c[char,1]\w2\c[char,1]\w2\c[char,1]\w2\c[char,1]\w2\c[char,1]\w2\c[char,1]\w2\c[char,1]\w2\c[char,1]\w2\c[char,1]\w2\c[char,1]\w2\c[char,1]\w2\c[char,1]\w2\c[char,1]\w2\c[char,1]\w2\c[char,1]\w2\c[char,1]\w2\c[char,1]\n\nall clean ✨"
+	"unrelated: i got some anti-itch cream and it's maybe working"
+	"i am experiencing the magic of non-expired anti-itch cream"
+	
+	"neither nice nor mean, but a secret third thing:\w8\w8 professional"
+	
+	"squints my brain"
+	
+	"what if ice cubes want to be a great big collective hive mind"
+	
+	"%(username) — Today at 9:55 PM"
+	
+	"%(italics)smacks my keys repeatedly to put my mangled up brain thoughts into a form that can permeate into your brain goo"
+	
+	"hungy.................."
+	"skrinkle skrinkle"
+	"stretches my back"
+	"you ever have like 5 things to do at once but you're so excited about them you can't get any of them done"
+	"it went really bad thanks for asking"
+	"hhhhhamburger"
+	"thinking i might go take a bath in the flour"
+	"you should tattoo me on your arm"
+	"drink time, slurp down your %(creature) juice"
+	"buzzzzzzzzzzzz"
+	"i got stuck in cling wrap once. 0/10 do not recommend."
+	"the holes in the wall tell a story"
+	"i'm kinda tired, are you tired? maybe it should be nap time\w8\w8\n\njk lol i don't sleep"
+	"i like V, it's a pointy letter. VvVvVvVvVvVvVvV"
+	"falls over and explodes"
+	"plant me in the garden, let's see if i sprout"
+	"Feeling foamy inside?\w8\w8\nTry our new Needle™ Defoaming Spray!\w8 Guaranteed to reduce foamy feelings by %(RAND(150) + 1)%!"
+	"around the block, %(mysterynum) times\w8\nto unlock the secret shrines"
+	"i might take the day off tomorrow"
+	"hey hey %(nickname), pass the %(red) would ya"
+	"hides under the %(object)\w8\w8\w8\w8\n\nno, no that's too obvious, i did that last time"
+	"hey want a snack? i got some %(flavor) %(cuts) we could share"
+	"one day they're gonna recognize me as the master chef i am\w8\w8\n\ni'll blow them away with my %(processed) %(flavor), then they'll HAVE to put me on top"
+	"i'm gonna do it, even if they don't believe in me. i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna\![set,balloonwait,0.3] i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna i'm gonna"
+	"floats around"
+	
+	"WHO PUNCHED THE FROG"
+	
+	"bake\w4 bake\w4 bake\w4 a cake\w4\ntake a rake\w4\nto the drake\w4\non the lake\w4\ncuz he's fake\w4\nthen you'll wake\w4\nand you'll make\w4\nfor your sake\w4\na cake\w4 cake\w4 cake"
+	
+	"\![raiseplugin,スタンプ帳,OnStampAdd,ghost\master\stamp.png,NEEEEEEEEEEEEEEDLE,poke poke]stamps u"
+	
+	"im so invested in applesnail"
+	
+	"tmi?\w8\w8\n%(tmi)"
+	"u got shrimps? I GOT SHRIMPS"
+	
+	"\C\n\n(NOT REAL I DIDN'T DO THAT)"
+	"what, do u hate tails?"
+	"i would say probably most things have a shape"
+	
+	"apples have teeny tiny bits of poison in the seeds. so dont swallow the seeds or an apple tree will grow out of u"
+	
+	"IS IT 150???????????????\n\nSEEMS FAKE\e:chain=chain.seemsfake"
+	
+	"why even hydrate"
+	
+	"in other news: i put my horse on a leaf"
+	
+	"cw: politics\w8\nthe world is better with tags"
+	
+	"i would talk but %(nottalkreason)"
+	
+	"when ur standing on 1 leg in the library and a book falls on ur head"
+	
+	"i dont wanna drink water, i just wanna be encased"
+	"if i had any toes left, would you rub them warm?"
+	"bites"
+	
+	"eats ur keys ???"
+	
+	"mustard makes my sandwich taste like mustard"
+	
+	"contact_uscontact_uscontact_us"
+	
+	"i have a HANGNAIL i CANNOT work in this condition i must go trim it immediately"
+	"save me stargazer, my leg is itchy"
+	
+	"if the plural of mouse is mice, the plural of house is hice"
+	
+	"choppin up trees"
+	"my favorite phrase is ""AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"""
+	"runny eggs are what mountains are made of. you'd know that if you cracked one open."
+	
+	"TOP 8 WORST THINGS TO DRINK\w8\nsoap\w8\nliquid mercury\w8\nenough photographs of whales to fill an entire art gallery\w8\nhow many things was that i lost count"
+	"my personal hell? no, i believe in sharing"
+	"slowly but surely, we're getting... somewhere"
+	"haha look at you over there, evaporating without a care in the world"
+	"flosses my teeth"
+	"\![set,balloonwait,3]r\na\ni\nn\_l[30,0]d\n\_l[30]r\n\_l[30]o\n\_l[30]p\n\_l[30]s\_l[60,0]r\n\_l[60]a\n\_l[60]i\n\_l[60]n\_l[90,0]d\n\_l[90]r\n\_l[90]o\n\_l[90]p\n\_l[90]s"
+	"none of your business what's over there, that %(importantitem) is \f[italic,1]mine\f[italic,default]"
+	"%(poke)... \w8\w8%(poke)...\w8\w8\n\nmaybe i should get a new one"
+	"bawoop!"
+	"how many bones can you fit into your mouth and is it more than 30 because if it isn't, i'm not impressed"
+	"theyre gonna stab me ☺️"
+	"i hope they dont steal this cyst i been carefully growing, they said they werent gonna"
+	"one of the frogs makes milk\w8\w8\ni think that one should be in with the chickens"
+	"drowning!?"
+	"i dont wanna drink water, i just wanna be encased"
+	"what if shrimps came in a peel like those tiny mandarins\e:chain=chain.shrimp_peels"
+	"nose popped...?"
+	"your job interview is tomorrow at 4,\w4 don't be late"
+	"practicing being a bee.\w8 bzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz honey"
+	"i'm gonna play the merry-go-round theme\w8\w8\n\n%(big)%(bold)%(bold)BUH BUH,\w8 BUH BUH,\w8 BUH,\w8 BUH BUH\w4 BUH!!!!%(regsize)%(boldoff) \w8\w8\n%(small)dododo dodo do dodododo dodododo dodododododo..."
+	"i wonder,\w4 if you planted me in fertile soil,\w4 would i sprout?"
+	"in other news,\w4 %(othernews)"
+	"i just finished %(sometask) and i am EXHAUSTED"
+	
+	"i went out for a walk today and befriended %(afriend)"
+	"""eating [blank] for 24 hours"" videos are so weak, anyone can eat a specific thing for a day"
+	
+	"gonna rip up this carpet one yarn at a time"
+	"time should be measured in %(measurewords)"
+	"this is it, this is the end"
+	"hey look over there\_w[2000]\c\f[height,+40]AAAAA\c\_qhey look over there"
+	"i'm gonna bite you, i'm gonna do it, i'm gonna get you with my fangs and take all your blood, mine mine mine mine mine"
+	"listen listen listen, do you hear that?\w8\w8 I think it's your %(bodypart)"
+	"return to sender"
+	"hm?\w8\w8 your %(bodypart)?\w8\w8 %(RAND(16))/10"
+	"NNN: Needle News Network\w8\nThis just in, the great noodle race is about to begin! Dozens of pasta are lined up and raring to go!" //this could be a chain lol
+	"Trees should try harder"
+	"im gonna sneeze\e:chain=chain.sneeze"
+	"i wanna be so shiny"
+	"i've got hives"
+	"have you ever looked closely at snow? yucky, right?"
+	"if I was in charge of the universe i'd make everything pointier"
+	"we should go to the jewelry store, i wanna get dressed up all pretty"
+	"germs germs germs germs"
+	"my favorite place to relax at home is the jar of old tomato sauce on the pantry"
+	"squeezes ur brain"
+	"why don't they shape instant ramen like a brain"
+	"pew pew,\w4 pew pew pew\w8\w8\n\ni'm a space sheriff"
+	"i aspire to be a tumbleweed one day"
+	"Now In HD"
+	"new!!!!! buy now!!!!!! THIS SALE WON'T LAST FOREVER!!!!!!!!!!!!!!!!"
+	"one day i'll sprout legs and fly away\nyou'll see you'll see you'll see you'll see"
+	"you have a fire extinguisher, right?\w8\w8\w8 well, can i sell you on this handy fire exacerbater? it's full of a special compound you can use when the fire isn't big enough for you.\w8\w8\n\nnever be without! a fire extinguisher and fire exacerbater are a matching set! make sure you have yours inspected every month"
+	"do you hear the wiggling air? which set of wiggles are you listening to?"
+	"take me on a rollercoaster, i wanna see how far you can throw me when it's going at speed"
+	"i hope i'm talk enough to read"
+	"how much radio can be broadcast before the air is full and no more will fit?"
+	"i wanna be on a colorful spreadsheet"
+	"consider me your paper shredder\w8\w8\n\nwhere's your birth certificate"
+	"i want a certificate. do you think i'd qualify? imagine it: Best Needle ✨"
+	"oh no my leg is falling asleep, oof owie"
+	"beep beep, microwave done"
+	"yaaaaaaaaaawn\_w[2000]\c[char,2]aaaaaaaaaaaaaaaaaaaaaaaaaawn"
+	"use me as a guitar pick, i wanna make pretty music"
+	"i found a nice violin to hide in but the owner was really mad about it for some reason. i got kicked out."
+	"find the hidden message:"
+	"cover your cough or you'll die"
+	"\C\n\nthis is a threat"
+	"i wanna learn photosynthesis"
+	"i need %(RAND(10) + 2) %(measurewords) of cereal please"
+	"if you blink it's a sign of weakness"
+	"they don't pay me enough for this"
+	"shingles: you need new ones!\w8 ask me how i know!"
+	"maybe one day you'll get it, but at this point i'm really doubting it.\w8 they haven't updated the shipping info for a month."
+	"suds suds suds suds\w8\w8\n\nyum"
+	"trying to do stuff but it's That Part Of The Day Where I'm Hungry And Can Only Think About Food"
+	
+	"that's like having the cereal with the marshmallows in it, picking out the marshmallows, then throwing out the marshmallows and eating the rest of the cereal"
+	"paint is spread on a wall\![raise,OnNewTalkInterval,special,60]\e:chain=chain.paint_drying"
+	
+	"i think all cleaning agents should be tasty"
+	
+	"i guess a few extra arms and eyes will do that to you"
+	
+	"why don't trees come with a manual"
+	"PUT ME IN YOUR WALLET"
+	"I WANNA GO IN A VENDING MACHINE"
+	"Moeydley is my middle name"
+	
+	"buzz buzz\w8\w8\n\npick up the phone"
+	"electric guitar noises"
+	"dough dough dough"
+	"did you remember to pay %(theinternetbill)"
+	"vvvvvv\w8\w8\n\nvvvVVVVvvVvVvVvvv\w8\w8\n\nvvvVVVVVVVVVVV\w8\w8\n\n%(small)vvvvvvvvvvvvvvvvvvv"
+	"%(small)i'm really tired"
+	"drip drop\w8\w8\ndrip drop\w8\w8\ndrip drop\w8\w8\nplip plop"
+	
+	"i love u banded bagel and banded bagel and banded bagel and banded bagel and banded bagel and banded bagel"
+	
+	"i wish dandruff tasted sweet"
+	
+	"it's helicopter time againnnnnnn"
+	"i sing with my eyes"
+	
+	"pink,\w4 green,\w4 yellow,\w4 cyan,\w4 orange,\w4 purple,\w4 red,\w4 blue.\w8\w8\n\nthat's the balloon popping order,\w4 remember that."
+	
+	"Calibration: *,-1,*,*,*,-1,-1,*,-1,-1,*,* - 0"
+	
+	"I ALMOST DIED BETTER GO GET MILK"
+	"despression......"
+	"yum yum, old wet jar"
+	"cat at my door...\w8\w8 CAT AT MY DOOR\e:chain=chain.cat_at_my_door"
+	"idk how de-waterifying places works"
+	"that's the place to get face"
+	"i always wear my desk blanket in the same direction, so there's one side that's very obviously smashed down and smells of feet"
+	
+	"IM GONNA POP\w8\w8\n\nok I'm better"
+	
+	"i want to stick a bean in my nose"
+	"scan this QR code to earn needle bucks"
+	"chew on gemstones they're good for your teeth"
+	
+	"go laugh at my refrigerator"
+	"my bones turn to jello\w8\w8\n\nand then birds eat my bones"
+	"\C\n\ncome to think of it this may all have been a figment of my imagination"
+	"we'll be right back after a word from our sponsor!"
+	"did you know that needles were invented to exactly replicate what it's like to have someone poke you so hard it goes through you? probably not because i made that up, needles are for sewing"
+	"daylight savings time more like daylight when i find the person that changed all the clocks i'm gonna hide in their coffee savings time"
+	"if i wore a boxing glove would it go on my point or in my eye or in your eye because i'm punching you"
+	"taking the lead out of a pencil so i can live as graphite\e:chain=chain.live_as_graphite"
+	"stack of boxes way up high\w8\npoke them poke them in the thigh\w8\nwatch them tumble hear them fall\w8\nthey were empty after all"
+	"""oh wow only 4 left!?!?"" - needle"
+	"three...\w8\w8 two...\w8\w8 one...\w8\w8 OH GOD AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n\nit's fine"
+	"so here we are again\w8\w8\na year or two has passed\w8\w8\naround it's all the same\w8\w8\nand yet it will not last\w8\w8\n\nwhat lies beyond we cannot say\w8\w8\nthe future dark, unknown\w8\w8\nbut here we stand with hand in hand\w8\w8\nwe'll make what comes our own"
+	"hey guess what i did today. \w8\w8\w8i found a time travel machine and used it to go to the future and randomly poison one of your drinks, but i didn't check what time i travelled to so it can be a surprise for both of us YIPPEE"
+	
 	//Content that is locked off unless the user allows motion, just to be on the safe side
 	parallel MotionEnabledDialogues
 
 	"\f[height,-3]made by galla and zichqec\w8\nsome portions inspired by galla's cat\w8\n%(mysterynum) %(creatures) were %(poked) in the making of this ghost"
-	"Version 1.1.2" //If you're peeking in this file - yes, this is the version number of your current needle. No, there is no easier way to find this information. :)
+	"Version 1.1.3" //If you're peeking in this file - yes, this is the version number of your current needle. No, there is no easier way to find this information. :)
 }
 
 MotionEnabledDialogues : array_pool
@@ -1236,6 +1500,61 @@ chain.chicken_noodle_night
 chain.magic
 {{CHAIN
 	"what do you mean magic is real!? since when!?\e:chain=end"
+}}CHAIN
+
+chain.feet_tents
+{{CHAIN
+	"ponchos but for feets"
+	"feet skirts!"
+	"sweatless feet warmth\w8\w8\n\nmaybe\e:chain=end"
+}}CHAIN
+
+chain.forehead_scab
+{{CHAIN
+	"OH GOD IT'S SO MUCH BLOOD"
+	"ok anyway my forehead stopped bleeding goodnight\e:chain=end"
+}}CHAIN
+
+chain.seemsfake
+{{CHAIN
+	"ok its real\e:chain=end"
+}}CHAIN
+
+chain.shrimp_peels
+{{CHAIN
+	"peel ur shrimps"
+	"peely peely\e:chain=end"
+}}CHAIN
+
+chain.sneeze
+{{CHAIN
+	"k-chuu\e:chain=end"
+}}CHAIN
+
+chain.paint_drying
+{{CHAIN
+	aitalkinterval = 60
+	"and then it dries a tiny little bit"
+	"and then it dries a tiny little bit more"
+	"and then it dries a tiny little bit more"
+	"and then it dries a tiny little bit more"
+	"and then it dries a tiny little bit more"
+	"and then it dries a tiny little bit more"
+	"and then it dries a tiny little bit more"
+	"and then it dries a tiny little bit more"
+	"and then it dries a tiny little bit more"
+	"and then it dries a tiny little bit more\e:chain=end"
+}}CHAIN
+
+chain.cat_at_my_door
+{{CHAIN
+	"now where were we... (cat is yelling...)\e:chain=end"
+}}CHAIN
+
+chain.live_as_graphite
+{{CHAIN
+	"i live in the pencil hole now"
+	"WRITE WITH ME SO I CAN TEAR YOUR PAPER\e:chain=end"
 }}CHAIN
 
 makestatic : all
