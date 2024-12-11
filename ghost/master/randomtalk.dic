@@ -3,12 +3,14 @@ OnAiTalk
 	_talk = ""
 	if SHIORI3FW.IsChain; _talk = ChainTalk
 	else; _talk = RandomTalk
-	if SHIORI3FW.ShellName == "Blushie"
+	if IsBlushieShell
 	{
-		if ASEARCH("uwu" + C_BYTE1 + "on/off",CurrentDressups) != -1
-		{
-			_talk = "uwu " + _talk + " uwu"
-		}
+		if "\C\n\n" _in_ _talk; _talk = REPLACE(_talk,"\C\n\n","\C\n\nuwu ")
+		elseif "\C" _in_ _talk; _talk = REPLACE(_talk,"\C","\Cuwu ")
+		else; _talk = "uwu " + _talk
+		
+		if "\e" _in_ _talk; _talk = REPLACE(_talk,"\e"," uwu\e")
+		else; _talk = _talk + " uwu"
 	}
 	_talk
 }

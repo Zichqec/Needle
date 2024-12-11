@@ -395,7 +395,12 @@ OnOtherOverlap : all
 	if _command != ""
 	{
 		"%(_command)"
-		"%(poke)"
+		--
+		if IsBlushieShell; "uwu "
+		--
+		poke
+		--
+		if IsBlushieShell; " uwu"
 	}
 }
 
@@ -421,7 +426,12 @@ On_homeurl
 OnMouseDoubleClick
 {
 	LOGGING("test: MOTION_ENABLED")
+	
+	if IsBlushieShell; "uwu "
+	--
 	poke
+	--
+	if IsBlushieShell; " uwu"
 	--
 	"\_l[-10000]\_q\_a[OnNeedlePokeChoice]Please open the menu\_a"
 }
@@ -449,6 +459,18 @@ OnPokePoke
 	poke
 }
 
+IsBlushieShell
+{
+	if SHIORI3FW.ShellName == "Blushie"
+	{
+		if ASEARCH("uwu" + C_BYTE1 + "on/off",CurrentDressups) != -1
+		{
+			1
+			return
+		}
+	}
+	0
+}
 
 //Thanks to https://www.industrian.net/tutorials/converting-numbers-to-roman-numerals/ for helping me figure out the logic for this
 IntToNumeral
@@ -1287,9 +1309,13 @@ OnShellChanged
 	}
 	else
 	{
+		if IsBlushieShell; "uwu "
+		--
 		"%(poke) %(reference0)"
 		"new shell,\w4 new %(poke)"
 		"Deadly Precision"
+		--
+		if IsBlushieShell; " uwu"
 	}
 	
 	ShellChangeCoords = IARRAY
