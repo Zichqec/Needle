@@ -1419,7 +1419,7 @@ RandomTalk : nonoverlap_pool
 	parallel MotionEnabledDialogues
 
 	"\f[height,-3]made by galla and zichqec\w8\nsome portions inspired by galla's cat\w8\n%(mysterynum) %(creatures) were %(poked) in the making of this ghost"
-	"Version 1.1.3" //If you're peeking in this file - yes, this is the version number of your current needle. No, there is no easier way to find this information. :)
+	"Version 1.1.4" //If you're peeking in this file - yes, this is the version number of your current needle. No, there is no easier way to find this information. :)
 }
 
 MotionEnabledDialogues : array_pool
