@@ -5,11 +5,11 @@ file,delete.txtd9ef90511e1c65e7ed0d72987b3cc48fsize=78date=2022-11-11T02:13:5
 file,developer_options.txt258b83a14fb56d3c12e2ca357e9cb168size=18date=2022-05-11T22:13:15
 file,enable_extra_content.txtbca72f952517ea7f453b3da78591459dsize=567date=2024-11-10T19:57:03
 file,ghost/master/descript.txt97b10d8a4aa939d3982bb86bb65f48edsize=275date=2024-11-10T19:52:53
-file,ghost/master/envelopes.dic7001987d40234cb130ae4ab5367856ecsize=61082date=2024-11-09T19:58:35
+file,ghost/master/envelopes.dic58d6fe3a8ac843433303bacb7020f9c5size=61080date=2024-12-14T02:05:23
 file,ghost/master/formatting.dicd60de438f0693740f285c207db010849size=2490date=2024-02-17T18:55:05
 file,ghost/master/icon.icocfa33ddca8c0edbd63fe7b8165b87e95size=16958date=2022-05-09T01:45:23
-file,ghost/master/main.dic452bfef0c684f184c606b8fc9466337esize=33052date=2024-11-09T22:18:42
-file,ghost/master/randomtalk.dic9d526616df04e8bc175e1fa0be225ee8size=124304date=2024-11-10T10:07:47
+file,ghost/master/main.dic64eeb4e1afa04121fc3b19f7308996dasize=33425date=2024-12-14T02:05:23
+file,ghost/master/randomtalk.dica58d1f3c5479e020ec9f86bbe87a8d38size=124440date=2024-12-14T02:05:23
 file,ghost/master/stamp.png4da3228de79d1061d70477db05d38d96size=1155date=2024-03-10T19:41:09
 file,ghost/master/yaya.dllfde7d3a9493076e29f43a8e757bf1231size=880640date=2024-08-25T07:14:02
 file,ghost/master/yaya.txtba2eb01f2e228c83d4b20bf846512ef1size=566date=2022-11-11T02:11:50
