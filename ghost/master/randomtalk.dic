@@ -1417,7 +1417,7 @@ RandomTalk : nonoverlap_pool
 	
 	//Content that is locked off unless the user allows motion, just to be on the safe side
 	parallel MotionEnabledDialogues
-
+	
 	"\f[height,-3]made by galla and zichqec\w8\nsome portions inspired by galla's cat\w8\n%(mysterynum) %(creatures) were %(poked) in the making of this ghost"
 	"Version 1.1.4" //If you're peeking in this file - yes, this is the version number of your current needle. No, there is no easier way to find this information. :)
 }
