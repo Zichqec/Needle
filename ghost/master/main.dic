@@ -404,19 +404,6 @@ OnOtherOverlap : all
 	}
 }
 
-OnNotifyDressupInfo
-{
-	CurrentDressups = IARRAY
-	
-	foreach reference; _ref
-	{
-		if _ref[4,C_BYTE1] == "1"
-		{
-			CurrentDressups ,= "%(_ref[1,C_BYTE1])" + C_BYTE1 + "%(_ref[2,C_BYTE1])"
-		}
-	}
-}
-
 //I remembered it this time lol
 On_homeurl
 {
@@ -1172,6 +1159,23 @@ OnMouseGesture
 			
 			if _gesture == "up,right_down,up"; OnShellRotationToggle
 			elseif _gesture == "left,down,right,left,down,right"; OnShellRotationStart
+			else
+			{
+				_count.cw = 0
+				_count.ccw = 0
+				
+				foreach _gesture; _g
+				{
+					if ".ccw" _in_ _g; _count.ccw++
+					elseif ".cw" _in_ _g; _count.cw++
+				}
+				
+				//5 or more in one direction but no doubling back
+				if (_count.cw >= 5 && _count.ccw == 0) || (_count.ccw >= 5 && _count.cw == 0)
+				{
+					"\![raise,OnRandomDressup,0]"
+				}
+			}
 		}
 		
 	}
@@ -1221,6 +1225,114 @@ OnShellRotationChoose
 	}
 	--
 	_shell
+}
+
+OnRandomDressup : all
+{
+	_char = 0
+	if reference0 != ""; _char = reference0
+	"\p[%(_char)]\_q" //You may want to add a \C at the start here if this is for a menu
+	
+	//—— Unbind all active ——
+	//ID, category, name
+	foreach dressups.current; _dressup
+	{
+		"\![bind,%(_dressup[1,C_BYTE1]),%(_dressup[2,C_BYTE1]),0]"
+	}
+	
+	//—— Break dressups into categories ——
+	_category.key = IARRAY
+	_category.val = IARRAY
+	_category.opt = IARRAY
+	
+	//ID, category, name, opts
+	foreach dressups.available; _dressup
+	{
+		_dressup = SPLIT(_dressup,C_BYTE1)
+		//Skip all that do not apply to this character
+		if TOINT(_dressup[0]) != _char; continue
+		
+		_index = ASEARCH(_dressup[1],_category.key)
+		
+		//Add new category if none found
+		if _index == -1
+		{
+			_category.key ,= _dressup[1]
+			_category.val ,= _dressup[2]
+			_category.opt ,= _dressup[3] //It's ok if this is an empty string...
+		}
+		else
+		{
+			_category.val[_index] += C_BYTE1 + _dressup[2]
+		}
+	}
+	
+	//—— Assign new dressups ——
+	_skipratio = 4 //1 out of 4
+	for _i = 0; _i < ARRAYSIZE(_category.key); _i++
+	{
+		_multiple = 0
+		_mustselect = 0
+		if "multiple" _in_ _category.opt[_i]; _multiple = 1
+		if "mustselect" _in_ _category.opt[_i]; _mustselect = 1
+		
+		//If we're not required to select it, skip sometimes
+		if !_mustselect && RAND(_skipratio) != 0; continue
+		
+		_category = _category.key[_i]
+		_dressups = SPLIT(_category.val[_i],C_BYTE1)
+		
+		_dressup_added = 0
+		if _multiple
+		{
+			foreach _dressups; _dressup
+			{
+				if RAND(_skipratio) != 0
+				{
+					_dressup_added = 1
+					"\![bind,%(_category),%(_dressup),1]"
+				}
+			}
+		}
+		
+		//If this is a pick-one category, or it's multiple but no dressups were added
+		if !_dressup_added
+		{
+			"\![bind,%(_category),%(ANY(_dressups)),1]"
+		}
+	}
+}
+
+OnNotifyDressupInfo
+{
+	dressups.available = IARRAY //This one is to display the dressup menu
+	dressups.current = IARRAY //This one is so we can display which dressups are currently in use
+	dressups.scopes = IARRAY //A list of all the characters with dressups available
+	
+	//Has to be reference.raw because parts of this are delimited with C_BYTE1
+	foreach reference.raw; _dressup
+	{
+		_dressup = SPLIT(_dressup,C_BYTE1)
+		
+		_toadd = _dressup[0] + C_BYTE1 + _dressup[1] + C_BYTE1 + _dressup[2]
+		if _dressup[4] == 1; dressups.current ,= _toadd
+		
+		if _dressup[3] != ""; _toadd += C_BYTE1 + _dressup[3]
+		dressups.available ,= _toadd
+		
+		if ASEARCH(_dressup[0],dressups.scopes) == -1; dressups.scopes ,= _dressup[0]
+	}
+	
+	//copying old version over because i can't be bothered to convert it right now...... i changed it to reference.raw though
+	CurrentDressups = IARRAY
+	
+	foreach reference.raw; _ref
+	{
+		if _ref[4,C_BYTE1] == "1"
+		{
+			CurrentDressups ,= "%(_ref[1,C_BYTE1])" + C_BYTE1 + "%(_ref[2,C_BYTE1])"
+		}
+	}
 }
 
 OnBalloonTimeout
