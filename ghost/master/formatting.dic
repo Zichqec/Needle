@@ -215,3 +215,24 @@ ToCase
 	elseif _argv[1] == 0; TOLOWER(_argv[0])
 	else; _argv[0]
 }
+
+DripText : all
+{
+	_input = _argv[0]
+	
+	"\![set,balloonwait,0.1]"
+	
+	_height = 15
+	_spacing = 2
+	for _i = 0; _i < STRLEN(_input); _i++
+	{
+		_let = SUBSTR(_input,_i,1)
+		for _ii = 0; _ii < _height; _ii++
+		{
+			"\_l[%(_i / 2.0)em]\_l[,@%(_spacing)]%(_let)"
+		}
+		"\_l[,@-%(_height * _spacing)]"
+	}
+	
+	"\![set,balloonwait,1.0]"
+}
