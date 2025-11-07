@@ -123,7 +123,7 @@ RandomTalk : nonoverlap_pool
 	"Scoop up the %(bodypart),\w4 drop 'em in the bin."
 	"Do your homework."
 	"Don't forget to moisturize."
-	"Making a wig from plasic bags."
+	"Making a wig from plastic bags."
 	"brush\w4 brush\w4 brush\w4 until you bleed"
 	"As we toil on our knees,\w4 scraping away the art of olde with our nails,\w4 heedless of artists long passed and the work they put in\n\w8toiling\n\w8on their knees\n\w8scraping away the dirt with their souls\n\w8\n\w8heedless of worms\n\w8\n\w8struggling to survive\w8\w8"
 	"cosmic glitter"
@@ -313,7 +313,7 @@ RandomTalk : nonoverlap_pool
 	"Hold my %(food),\w4 I need to go on holiday."
 	"tiny slippers made of needles"
 	"I'm trying on human names for myself.\w8 What do you think about %(maketruename)?\w8 A little weird,\w4 right?\w8\w8 I'll put a pin in it."
-	"madness?\w8 this\w4 is\w4 %(needle) %(needle) %(needle)"
+	"%(needle) %(needle) %(needle)"
 	"i wonder what you'd be like as a needle,\w4 %(username)"
 	"%(mysterynum) little needles in the ceiling,\w4 %(mysterynum) little needles...\w8\w8\ntake one down,\w4 pass it around,\w4 %(mysterynum + 1) little needles in the ceiling\e:eval=mysterynum += 1"
 	"I Am Never Going To Let You Forget Our Conversations."
@@ -569,7 +569,7 @@ RandomTalk : nonoverlap_pool
 	"unreasonable"
 	":sparkles:"
 	"-=≡=-   -=≡=-   -=≡=-   -=≡=-\n\nlook out it's the martians"
-	"music LIVES" //:3c
+	"the music comes alive and it wiggles wiggles wiggles"
 	"\f[align,right]\n-=≡=-   -=≡=-   -=≡=-   -=≡=-\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w8\w8\w8\n\nnyoom"
 	"\_b[""%(SHIORI3FW.ShellPath)surface0.png"",inline,--option=use_self_alpha]"
 	"i scream you scream we all scream for %(screamrand)"
@@ -672,6 +672,7 @@ RandomTalk : nonoverlap_pool
 		"%(SHIORI3FW.BalloonName).\w8\w8 "
 		--
 		if SHIORI3FW.BalloonName == "Needloon"; "The correct choice."
+		elseif SHIORI3FW.BalloonName == "Needloon (readable)"; "The other correct choice."
 		elseif SHIORI3FW.BalloonName == "Balloons Balloon"; "Perfectly Poppable."
 		elseif SHIORI3FW.BalloonName == "Paperboard"; "Good kindling."
 		elseif SHIORI3FW.BalloonName == "Noodloon"; "Sauce Time™."
@@ -1415,6 +1416,126 @@ RandomTalk : nonoverlap_pool
 	"so here we are again\w8\w8\na year or two has passed\w8\w8\naround it's all the same\w8\w8\nand yet it will not last\w8\w8\n\nwhat lies beyond we cannot say\w8\w8\nthe future dark, unknown\w8\w8\nbut here we stand with hand in hand\w8\w8\nwe'll make what comes our own"
 	"hey guess what i did today. \w8\w8\w8i found a time travel machine and used it to go to the future and randomly poison one of your drinks, but i didn't check what time i travelled to so it can be a surprise for both of us YIPPEE"
 	
+	//1.1.5
+	"feet tents, feet tents, how many do you own\n\w8feet tents, feet tents, look how they've grown"
+	"AAAAAAAAAAAAA ITS REALLLLL\n\w8IT'S REAALLLLL\n\w8OH GOD"
+	"The Eye, The Mouth, and probably somewhere there might be some braincells..."
+	"i just have to slay the tax dragon"
+	"i tried pinching my pennies but they pinched back"
+	"gotta work out your brain bone\e:chain=chain.brain_bone"
+	"damn i forgot to pull out my bread\n\w8guess i will have cold bread"
+	"does the eye of a storm count as part face"
+	"AAA MY EAR IS RINGING wait it's better"
+	"cuz my feet toes got sockies"
+	"hey, can i have your wrench for a sec"
+	"step 1: put the casters in the spider"
+	"squish squash, vitamin D gone flat"
+	"hooray! fraud!"
+	"it doesn't taste %(italic)bad%(italicoff) so I'm eating it anyways, it's just a little slice of disappointment every morning"
+	"a knife is an accessory."
+	"gets u lil feetie rice bags, make dem feets sweat\e:chain=chain.feet_tents2"
+	"mfw i survive the first round of cannibalism and get dropped off at school"
+	"u got like friendship juice ???"
+	"""detach here"" says the unperforated paper\e:chain=chain.detach_here"
+	"feeling like eggs today"
+	"usually i have been licking my little sauce dish clean because i like the sauces i have a lot\w8\w8\n\nbut today there is a lot of sauce left and i do not feel like it"
+	"@ me!??!?!!?"
+	"o that scab is back. cool. seems fine this time, do not pick\e:chain=chain.picks_scab"
+	"wanna see my weird pupils"
+	"anyway i've cleaned the pins"
+	"i agree, :metl"
+	"can you make quicksand at home? asking for a friend"
+	"crankcrankcrankcrankcrank crank crank crank crank crank   crank   crank   crank    crank    crank    crank        crank        crank        crank            crank            crank                    crank                                   crank                                                c r a n k                                                                                                        c   r   a   n   k"
+	"who will you be in two years time?\w8\w8\n\nhow about half an hour from now?"
+	"i blinked and you were gone for a moment and i was sad"
+	"i'm not sure if it needs to be square or if non-squares are allowed"
+	if NicknameSet
+	{
+		if ARRAYSIZE(nicknames) >= 10; "rummages around in my big bag of %(truename) names\w8\w8\n\n%(nickname)?\w8\w8\n\n%(nickname)...\w8\w8\n\naha!\w8 here.\w8 %(nickname)."
+		else; "keeping a well-trimmed collection?\w8 inadvisable."
+	}
+	else; "All Is As It Should Be."
+	
+	"am hungy. sniff snoof."
+	"back hairs back hairs back hairs"
+	
+	"i need 3000 muffins by tomorrow morning and they gotta be JUMBO so start making some calls"
+	"im gonna join you for your last meal, good luck finding me"
+	"im gonna turn this rabbit into yarn"
+	"feet toe toe feets feet toes toe feet toes feets"
+	"been practicing my jumpscares on myself. i have the perfect plan, i just gotta catch myself by surprise."
+	"keep me away from the crows"
+	"I CAN CURE BRAIN ROT, SHOVE ME IN THERE"
+	"Have You Met The Bog Spirit?\w8\w8\w8\n\n\__q[""https://ukagaka.zichqec.com/plugin/spectre""]%(DripText('Yes, That One.'))\__q"
+	"what's the weirdest thing you've ever seen while on a boat in the middle of the ocean because someone told me they saw an owl and someone else said they saw a ufo and another someone else that i don't actually know said that they saw a bagel shop but all i've ever seen is nothing because i don't know where to get a boat from"
+	"if a woolly bear is so woolly why doesn't it just knit a sweater so it stops freezing"
+	"IF ALL THE BEES MOVE INTO PLASTIC HIVES, WHERE ARE WE SUPPOSED TO GET CANDLES FROM"
+	"when i grow up i want to be a theremin woooooooooOOOOEEEEEEEEEEeeeiiiiiiiiii"
+	"why do the letters bend"
+	"wait i know the answer, but i don't want to tell you, figure it out for yourself"
+	"got any spare bones, my collection is getting hungry"
+	"HEY DON'T TOUCH MY KEEL BONE wait that one isn't mine nvm"
+	"if i vibrate fast enough i can double as a heater"
+	"i'm a radio you just don't know it yet"
+	"im working on my spins so i can be a corkscrew one day"
+	//"have you seen how good my spins are now" //TODO teehee
+	"spines spines spines spines give me yours"
+	"red and blue, bred and lue, led and brue"
+	"i wish i was attached to a yolk sac"
+	"where's the air freshener PSSHSHSHSHHH there it is"
+	"can we go to the paint store i wanna change my look"
+	"put me in the dishwasher i wanna make it go GRRRRGRGHGHGRHK"
+	"if we steal money from the bank and take it to another bank and swap out that money with their money we can get away with the ultimate double bank heist, we'll be sooooooooooo rich"
+	"How To Get A Free Trip To Jail In 3 Easy Steps!"
+	"wormies wormies in the mud\w8\nsquirmies squirmies steal their blood"
+	"i heard you wanted to cook later so i went ahead and watered all your salt and flour, they should be ready by now"
+	"hey hey hey hey %(big)%(big)hey%(small)%(small) hey hey %(big)hey%(small) hey %(bold)hey hey %(small)HEY%(big)%(boldoff) hey hey %(small)%(small)hey%(big)%(big) hey\n%(big)%(big)%(big)%(big)hey%(small)%(small)%(small)%(small)\n\n\w8\w8hey"
+	"coconut\e:chain=chain.coconut"
+	"did you know that bears have mouths just FULL of needles? bears and needles are a natural fit! check it out next time you're standing next to a bear!"
+	"inventing flammable helium, this will never go wrong"
+	"i replaced one of the air fresheners in the bathroom with pepper spray, don't tell anyone"
+	"wait hold on im gonna make the loudest sound anyone ever heard\w8\w8\n\n\n\n\n\n\f[height,+200]%(bold)A\f[default]"
+	"the parenthesis is instructions??"
+	"sticks u in a statue, they'll never find u here"
+	"i wanna go race with the snails"
+	"how many potatoes is too many potatoes??? 73"
+	"hey if it's not too much trouble could you become an astronaut and take me up to the international space station with you?\w8\w8\n\nand then fling me out the window, i wanna go explore deep space"
+	"i'm making up my own language, wanna be in it?"
+	"stick me in a claw machine, i wanna see who wins me"
+	"tape me to a camera and drop me in one of those storm drains, i'll see where it goes and commentate the experience"
+	"im feeling SOGGY"
+	"AAAAAAAAAAAAAAAAAAAAAlrighty i'm back with the milkshakes and grilled cheese, what are we playing!?"
+	"Lets All Be Pedantic"
+	"bonk bonk bonk bonk this is a noise complaint BUT FOR WHO"
+	"lock me in the kennel, i wanna see what that cough thing is about"
+	"hazelnut,\w4 hazelnut,\w4 hazelnut~\w8\nits the weapon~\w8\nof choice~\w8\nfor all your allergen assassin neeeeeds~"
+	"record me to a click i wanna be flown around"
+	"making cutlets so thin you can hang them up as weird floppy suncatchers"
+	"how can i get through to you, would you even notice if i tried? are you listening? i'm right here, talking to you. does the context prevent you from seeing? how can i snap you out of it?"
+	"just wait until i figure out how to use the computer, it'll be over for you"
+	"ask me what color things are so i can prove that i'm smarter than a very smart bird"
+	"give me a hug. i won't steal your %(bodypart), promise"
+	"stick me in a pear i want to suck out its delicious juices"
+	"slowly metamorphosing into a cartoon character"
+	"space mail space mail space mail open the mail and a bunch of space comes out and then you can have your very own space isnt that cool"
+	"put me in one of those digital keychain toys, i wanna be walked around and fed and loved"
+	
+	"IF I WAS MADE OF MOLD I WOULD ROLL ALL OVER YOUR HOUSE"
+	"i don't understand the point of horror games where the hero gets a gun, when i have a gun everything is way less scary. except for the gun. the gun is still scary. but i have the gun, so i'm the scary one, and it can't be a horror if i'm the scary one. i don't know what that's called, but it's not horror, it's reverse-horror-because-i-have-the-scary-gun."
+	
+	"I'M GONNA BE A WRESTLER, WANNA SEE MY FINISHING MOVE??? NEEEEEEEDLE (does a flip or something)" //TODO -- maybe a motion dialogue as well
+	
+	"more like FINGERS that got CUT OFF"
+	"i tasted mold today"
+	"nice dog ears"
+	"surround sound"
+	"raw liquidless vegetable soup\e:chain=chain.vegetable_soup"
+	
+	"how much cold u want?? 7 cold???"
+	"oh man i learned the wildest thing today, you're not gonna believe this.\w8\w8 %(nutrientsarereal)"
+	
+	"teeth bath bomb,\w4 makes your bath fizzy and nice smelling!\w8\w8 Also puts teeth in it"
+	
 	//Content that is locked off unless the user allows motion, just to be on the safe side
 	parallel MotionEnabledDialogues
 	
@@ -1557,6 +1678,44 @@ chain.live_as_graphite
 {{CHAIN
 	"i live in the pencil hole now"
 	"WRITE WITH ME SO I CAN TEAR YOUR PAPER\e:chain=end"
+}}CHAIN
+
+chain.brain_bone
+{{CHAIN
+	"drink milk to keep your brain bone strong"
+	"did you know anchovies are important for a healthy brain bone"
+	"i lied about the last one"
+	"it doesn't have to be anchovies, it can be any tiny fish with tiny bones"
+	"eating bones is good for your brain bone\e:chain=end"
+}}CHAIN
+
+chain.feet_tents2
+{{CHAIN
+	"feet tents then"
+	"all the feet without the sweat"
+	"feet tents!!! bottomless sockies, u remember???\e:chain=end"
+}}CHAIN
+
+chain.detach_here
+{{CHAIN
+	"""peel here"" says the banana without a skin because i already ate it\e:chain=end"
+}}CHAIN
+
+chain.picks_scab
+{{CHAIN
+	"\f[italic,1]picks scab\f[italic,default]\e:chain=end"
+}}CHAIN
+
+chain.coconut
+{{CHAIN
+	"what did you want more context?"
+	"ok here's more context."
+	"soup\e:chain=end"
+}}CHAIN
+
+chain.vegetable_soup
+{{CHAIN
+	"good for my health\e:chain=end"
 }}CHAIN
 
 makestatic : all

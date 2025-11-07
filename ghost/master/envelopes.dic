@@ -312,7 +312,7 @@ Title
 	
 	
 	"Jester"
-	"The Collecter of %(creatures),"
+	"The Collector of %(creatures),"
 	"Unsalted"
 	
 	"Grade A"
@@ -321,6 +321,8 @@ Title
 	"%(number)% %(pure)"
 	
 	"%(ANY('Artificially ','Naturally ','Naturally And Artificially ','Unnaturally ',''))%(ANY('Unf','F'))lavored"
+	
+	"Untapped"
 }
 
 pure
@@ -412,6 +414,7 @@ Suffix
 		"the Threat to Society"
 		"My Partner in Crime"
 		"the Knowledge Black Hole"
+		"the Spinal Fluid Hoarder"
 	}
 	"the %(trait) One"
 	"the One That %(that)"
@@ -2951,6 +2954,15 @@ thatmud
 	"like 1,000 more years to dream about stuff"
 	"these memories"
 	"of us— nah i'm just kidding\e"
+}
+
+nutrientsarereal
+{
+	"nutrients are REAL"
+	"bears AREN'T INSECTS!?!?"
+	"there's no such thing as tomatoes!?"
+	"aluminum is actually just copper that's painted silver!?"
+	"rabbits LOVE coupons, if you give a rabbit a coupon it'll NEVER stop pestering you for more"
 }
 
 //.
