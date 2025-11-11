@@ -64,6 +64,7 @@ OnShellRandom
 
 OnClose
 {
+	//TODO uwu this
 	"kicks you out"
 	"%(laugh)"
 	"See you tonight"
@@ -1419,6 +1420,10 @@ OnShellChanged
 	{
 		"have you ever considered the anatomy of a needle and what makes it tick the ideal form is often considered to be up to interpretation but the truth of the matter is that one only needs to apply simple mathematics in order to find that there is a singular needly form that unilaterally performs all functions optimally and here we will demonstrate this for all that may be in doubt and if you disagree with our assessment you will be eliminated thank you have a nice day"
 	}
+	elseif SHIORI3FW.ShellName == "3d Printed"
+	{
+		"BEHOLD,\w4 I HAVE ACHIEVED THE 3RD DIMENSION"
+	}
 	else
 	{
 		if IsBlushieShell; "uwu "
@@ -1453,15 +1458,24 @@ OnSpectrePlugin.Possession
 {
 	if RAND(4) == 0
 	{
-		"i know you"
-		"thief"
-		"terrors in the night"
-		"caught red handed"
-		"%(poke) answer for your crimes\w8\w8\n\nok that's a little mean, i guess"
-		"swamp spirit,\w4 swamp spirit,\w4 come out to play\w8\w8\n\ni know i know it's a bog not a swamp,\w4 yadda yadda yadda"
-		"last time i tried to %(poke) that one, i got covered in mud"
-		"how can you be lonely you've got all %(thatmud) to keep you company"
+		if IsBlushieShell; "uwu "
+		--
+		SpectrePool
+		--
+		if IsBlushieShell; " uwu"
 	}
+}
+
+SpectrePool
+{
+	"i know you"
+	"thief"
+	"terrors in the night"
+	"caught red handed"
+	"%(poke) answer for your crimes\w8\w8\n\nok that's a little mean, i guess"
+	"swamp spirit,\w4 swamp spirit,\w4 come out to play\w8\w8\n\ni know i know it's a bog not a swamp,\w4 yadda yadda yadda"
+	"last time i tried to %(poke) that one, i got covered in mud"
+	"how can you be lonely you've got all %(thatmud) to keep you company"
 }
 
 OnGhostCallComplete
