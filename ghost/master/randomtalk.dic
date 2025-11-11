@@ -315,7 +315,7 @@ RandomTalk : nonoverlap_pool
 	"I'm trying on human names for myself.\w8 What do you think about %(maketruename)?\w8 A little weird,\w4 right?\w8\w8 I'll put a pin in it."
 	"%(needle) %(needle) %(needle)"
 	"i wonder what you'd be like as a needle,\w4 %(username)"
-	"%(mysterynum) little needles in the ceiling,\w4 %(mysterynum) little needles...\w8\w8\ntake one down,\w4 pass it around,\w4 %(mysterynum + 1) little needles in the ceiling\e:eval=mysterynum += 1"
+	"%(mysterynum) little needles in the ceiling,\w4 %(mysterynum) little needles...\w8\w8\ntake one down,\w4 pass it around,\w4 %(mysterynum + 1) little needles in the ceiling\![raise,OnRaiseMysteryNum]"
 	"I Am Never Going To Let You Forget Our Conversations."
 	
 	
