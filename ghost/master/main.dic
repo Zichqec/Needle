@@ -40,6 +40,7 @@ OnBoot
 	"Greetings,\w4 %(_newname)"
 	"G'day,\w4 %(_newname)"
 	"Needly day to you,\w4 %(_newname)"
+	//if RAND(10) == 0; "emerges from your chest in a shower of blood and gore I HEARD YOU THINKING ABOUT ME AND NOW IM HERE" //TODO but it doesn't state your name...
 }
 
 OnGhostChanged {OnBoot} //For reloading
@@ -1177,7 +1178,6 @@ OnMouseGesture
 				}
 			}
 		}
-		
 	}
 	else; gesture ,= reference5
 }
