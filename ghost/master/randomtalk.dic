@@ -12,6 +12,12 @@ OnAiTalk
 		if "\e" _in_ _talk; _talk = REPLACE(_talk,"\e"," uwu\e")
 		else; _talk = _talk + " uwu"
 	}
+	elseif SHIORI3FW.ShellName == "ASCIIdle" //TODO this is funny but i need to confirm it with galla and also it probably needs to be toggleable via dressup lol - this also sets the precedent for like... other shells to have text effects??? which. like. i mean. MAYBE. but uhhhhh. if we're gonna do that, i should make a more centralized system that is easier to add to... i just think. expansive needle. larger text...... lol
+	{
+		if "\C\n\n" _in_ _talk; _talk = REPLACE(_talk,"\C\n\n","\C\n\n\f[name,courier new]")
+		elseif "\C" _in_ _talk; _talk = REPLACE(_talk,"\C","\C\f[name,courier new]")
+		else; _talk = "\f[name,courier new]" + _talk
+	}
 	_talk
 }
 
@@ -2462,4 +2468,9 @@ OnMaze : all
 			else; _right
 		}
 	}
+}
+
+OnRaiseMysteryNum
+{
+	mysterynum += TOINT(reference0)
 }
