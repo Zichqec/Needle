@@ -12,12 +12,12 @@ OnAiTalk
 		if "\e" _in_ _talk; _talk = REPLACE(_talk,"\e"," uwu\e")
 		else; _talk = _talk + " uwu"
 	}
-	elseif SHIORI3FW.ShellName == "ASCIIdle" //TODO this is funny but i need to confirm it with galla and also it probably needs to be toggleable via dressup lol - this also sets the precedent for like... other shells to have text effects??? which. like. i mean. MAYBE. but uhhhhh. if we're gonna do that, i should make a more centralized system that is easier to add to... i just think. expansive needle. larger text...... lol
-	{
-		if "\C\n\n" _in_ _talk; _talk = REPLACE(_talk,"\C\n\n","\C\n\n\f[name,courier new]")
-		elseif "\C" _in_ _talk; _talk = REPLACE(_talk,"\C","\C\f[name,courier new]")
-		else; _talk = "\f[name,courier new]" + _talk
-	}
+	// elseif SHIORI3FW.ShellName == "ASCIIdle" //TODO this is funny but i need to confirm it with galla and also it probably needs to be toggleable via dressup lol - this also sets the precedent for like... other shells to have text effects??? which. like. i mean. MAYBE. but uhhhhh. if we're gonna do that, i should make a more centralized system that is easier to add to... i just think. expansive needle. larger text...... lol
+	// {
+		// if "\C\n\n" _in_ _talk; _talk = REPLACE(_talk,"\C\n\n","\C\n\n\f[name,courier new]")
+		// elseif "\C" _in_ _talk; _talk = REPLACE(_talk,"\C","\C\f[name,courier new]")
+		// else; _talk = "\f[name,courier new]" + _talk
+	// }
 	_talk
 }
 
@@ -1483,8 +1483,8 @@ RandomTalk : nonoverlap_pool
 	"HEY DON'T TOUCH MY KEEL BONE wait that one isn't mine nvm"
 	"if i vibrate fast enough i can double as a heater"
 	"i'm a radio you just don't know it yet"
-	"im working on my spins so i can be a corkscrew one day"
-	//"have you seen how good my spins are now" //TODO teehee
+	if SHIORI3FW.ShellName == "Corkscrew"; "have you seen how good my spins are now"
+	else; "im working on my spins so i can be a corkscrew one day"
 	"spines spines spines spines give me yours"
 	"red and blue, bred and lue, led and brue"
 	"i wish i was attached to a yolk sac"
@@ -1529,8 +1529,6 @@ RandomTalk : nonoverlap_pool
 	"IF I WAS MADE OF MOLD I WOULD ROLL ALL OVER YOUR HOUSE"
 	"i don't understand the point of horror games where the hero gets a gun, when i have a gun everything is way less scary. except for the gun. the gun is still scary. but i have the gun, so i'm the scary one, and it can't be a horror if i'm the scary one. i don't know what that's called, but it's not horror, it's reverse-horror-because-i-have-the-scary-gun."
 	
-	"I'M GONNA BE A WRESTLER, WANNA SEE MY FINISHING MOVE??? NEEEEEEEDLE (does a flip or something)" //TODO -- maybe a motion dialogue as well
-	
 	"more like FINGERS that got CUT OFF"
 	"i tasted mold today"
 	"nice dog ears"
@@ -1541,6 +1539,13 @@ RandomTalk : nonoverlap_pool
 	"oh man i learned the wildest thing today, you're not gonna believe this.\w8\w8 %(nutrientsarereal)"
 	
 	"teeth bath bomb,\w4 makes your bath fizzy and nice smelling!\w8\w8 Also puts teeth in it"
+	
+	"beans beans beans beans beans beans WHY DO YOU HAVE SO MUCH HAIR"
+	"be careful what doors you open, the last thing we need is some psychoactive mist in here"
+	"ATTACH ME TO AN ELECTRIC SCREWDRIVER AND I'LL BE THE BEST BLENDER YOU EVER HAD"
+	"TAKE ME TO THE FAIR I WANNA BE PART OF THE RING TOSS"
+	"how long do you think i need to be kept in hot water in order to make a delicious tea? no don't answer that, hurry and boil the water i'll get my swimsuit on"
+	"Put me on a chain\n\w8And carry me outside\n\w8The skies are filled with rain\n\w8The droplets collide\n\w8We climb aboard a train\n\w8Its booths so warm and wide\n\w8We'll watch the weather reign\n\w8And from its chill we'll hide"
 	
 	//Content that is locked off unless the user allows motion, just to be on the safe side
 	parallel MotionEnabledDialogues
@@ -1560,6 +1565,8 @@ MotionEnabledDialogues : array_pool
 		"w\f[align,left]h\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]e\f[align,center]e\f[align,right]e\f[align,center]e\f[align,left]"
 		
 		"look watch this\w8\w8\b[2]\nboom.\w8 like magic.\w8\n\nwatch watch i'll do it again.\w8\w8\b[4] whoa.\w8 incredible.\w8\w8\n\nok ok ok ok one more time are you ready for this.\w4\b[6]\w4\b[8]\w4\b[10]\w4\b[12]\w4\b[14]\w4\b[16]\w4\b[18]\w4\b[20]\w4\b[22]\w4\b[24]\w4\b[26]\w4\b[28]\w4\b[30]\w4\b[32]\w4\b[34]\w4\b[36]\w4\b[38]\w4\b[40]\w4\b[42]\w4\b[44]\w4\b[46]\w4\b[0]\w8\w8\n\ndid you get all that?"
+		
+		"I'M GONNA BE A WRESTLER, WANNA SEE MY FINISHING MOVE???\w8 NEEEEEEEDLE\![embed,OnWrestlerFinishingMove]"
 	}
 	else
 	{
@@ -1568,6 +1575,7 @@ MotionEnabledDialogues : array_pool
 		"holding very still,\w4 just for you"
 		"you owe me for this"
 		"bound by legal contract"
+		"sits still and bats my eyelashes at the camera"
 	}
 }
 
@@ -2473,4 +2481,17 @@ OnMaze : all
 OnRaiseMysteryNum
 {
 	mysterynum += TOINT(reference0)
+}
+
+OnWrestlerFinishingMove : all
+{
+	for _i = 100; _i > -100; _i--
+	{
+		"\![set,scale,100,%(_i)]\_w[1]"
+	}
+	for _i = -100; _i < 100; _i++
+	{
+		"\![set,scale,100,%(_i)]\_w[1]"
+	}
+	"\![set,scale,100,100]"
 }
