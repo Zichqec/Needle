@@ -1309,6 +1309,17 @@ OnRandomDressup : all
 			"\![bind,%(_category),%(ANY(_dressups)),1]"
 		}
 	}
+	"\![quicksection,false]"
+	DressupChangeComment
+}
+
+DressupChangeComment : nonoverlap
+{
+	"\f[italic,1]swoosh\f[italic,default]"
+	"\f[italic,1]sparkles\f[italic,default]"
+	"sheds my skin and reveals a new shinier skin"
+	"BEHOLD MY NEW FORM"
+	"✨ so pretty ✨"
 }
 
 OnNotifyDressupInfo
