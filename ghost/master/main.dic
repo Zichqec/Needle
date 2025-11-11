@@ -35,12 +35,16 @@ OnBoot
 	--
 	"\0\s[0]"
 	--
+	if IsBlushieShell; "uwu "
+	--
 	"Hello,\w4 %(_newname)"
 	"Hi,\w4 %(_newname)"
 	"Greetings,\w4 %(_newname)"
 	"G'day,\w4 %(_newname)"
 	"Needly day to you,\w4 %(_newname)"
-	//if RAND(10) == 0; "emerges from your chest in a shower of blood and gore I HEARD YOU THINKING ABOUT ME AND NOW IM HERE" //TODO but it doesn't state your name...
+	if RAND(10) == 0; "emerges from your chest in a shower of blood and gore I HEARD YOU THINKING ABOUT ME %(TOUPPER(_newname)) AND NOW IM HERE"
+	--
+	if IsBlushieShell; " uwu"
 }
 
 OnGhostChanged {OnBoot} //For reloading
@@ -65,12 +69,15 @@ OnShellRandom
 
 OnClose
 {
-	//TODO uwu this
+	if IsBlushieShell; "uwu "
+	--
 	"kicks you out"
 	"%(laugh)"
 	"See you tonight"
 	"%(poke) for the road"
 	"Takes your %(bodypart) with me"
+	--
+	if IsBlushieShell; " uwu"
 	--
 	"\w8\w8\-\e"
 }
