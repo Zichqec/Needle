@@ -550,7 +550,7 @@ RandomTalk : nonoverlap_pool
 	"bet u can't count to %(mysterynum) with one eye closed"
 	"let me get an axe real quick"
 	"look ma no hands\w8\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]\w1\c[char,1,0]"
-	"look what i can do\n\n\f[shadowstyle,offset]oooooooooooooo\f[shadowstyle,default]\w8\w8\n\nok im done"
+	"look what i can do\n\n\f[shadowstyle,%(('offset','outline')[SHIORI3FW.BalloonName == 'Needloon (readable)'])]oooooooooooooo\f[shadowstyle,default]\w8\w8\n\nok im done"
 	"stress relief"
 	"lighting matches and licking them clean"
 	"bend"
