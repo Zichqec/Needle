@@ -502,7 +502,7 @@ OnMouseDoubleClick
 	--
 	if IsBlushieShell; " uwu"
 	--
-	"\_l[-10000]\_q\_a[OnNeedlePokeChoice]Please open the menu\_a"
+	"\_l[-10000]\_q\_a[OnNeedlePokeChoice]Please open the menu\_a" //The new backlog feature reveals this lol
 }
 
 OnNeedlePokeChoice : all
