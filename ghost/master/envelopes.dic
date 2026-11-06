@@ -2965,4 +2965,32 @@ nutrientsarereal
 	"rabbits LOVE coupons, if you give a rabbit a coupon it'll NEVER stop pestering you for more"
 }
 
+picklejuice
+{
+	"pickle juice"
+	"salad"
+	"hamburger"
+	"vinegar"
+	"grape juice"
+}
+
+haveatastymeal
+{
+	"have a tasty meal"
+	"start a beetle city"
+	"go to mars"
+	"trade for those worms over there"
+	"appease the beetle gods"
+	"man a submarine"
+	"start a beetle based historical drama"
+	"set up an illegal beetle fighting ring"
+}
+
+feelings
+{
+	"nostalgia for discontinued snacks"
+	"urge to do backflips"
+	"itchy toe"
+}
+
 //.
