@@ -333,13 +333,10 @@ OnKeyPress
 
 TO IMPLEMENT NEEDLE POKING YOUR GHOST:
 
-When needle pokes a ghost (overlaps it, when it previously was not overlapping it) it sends the OnNeedlePoke event. It also sends which character it's poking, as a number. So 0 for sakura, 1 for kero, etc.
+When needle pokes a ghost (overlaps it, when it previously was not overlapping it) it sends the OnNeedlePoke event. It also sends the scope number of the character being poked as reference0. 0 for the sakura, 1 for the kero, etc.
 
-reference1 is the name of the current shell.
-
-At the moment, this just sends the events one after the other... so if you've got more than one character that might get complicated. Uh. Hm... I miiiight update this later to send an array or something, but that might be very complicated. So! For now it's gonna be one at a time, sorry.
-
-But yeah basically it'd look like this:
+reference1 is the name of Needle's current shell.
+reference2 is a list of dressups Needle is currently using, if any. This is a 2-dimensional array where each dressup is delimited by the noncharacter 0xFDEF, and the category/part name of each dressup is delimited by 0x01 (in YAYA, C_BYTE1).
 
 OnNeedlePoke
 {
@@ -358,59 +355,135 @@ OnNeedlePoke
 	//etc...
 }
 
+OnNeedlePoke sends the event for just one character, and if there are multiple at once, it sends events one after another. If you need to respond to multiple characters being poked at once, you can use OnNeedlePokeEx, which occurs first. *Both events are sent, so either pick one event to respond to, or add some logic to avoid responding to both.*
+
+OnNeedlePokeEx sends the scopes as an array, so you can make a response like this:
+
+OnNeedlePokeEx
+{
+	//Simultaneous response from all poked characters at once
+	"\_s[%(reference0)]Ow!\_s"
+}
+
+Or this:
+
+OnNeedlePokeEx : all
+{
+	//One-after-another response from all characters
+	_scopes = SPLIT(reference0,",")
+	for _i = 0; _i < ARRAYSIZE(_scopes); _i++
+	{
+		"\p[%(_scopes[i])]Ow!\w8"
+	}
+}
+
+Or however you want.
+Usually, you won't need this event, and OnNeedlePoke will be enough. But if you're doing stuff with many characters, like the ghost Flakes of Fancy, then it may be helpful.
+
+
+And a note for any developers that want to add this code to their own ghost (since I've been asked about it before):
+Referencing my work is always OK, if you reference this and write your own then you don't need to ask me for permission or credit me.
+As for copying this code directly, I don't mind it as long as you credit me! The following credit in the code is fine:
+//Written by Zichqec https://ukagaka.zichqec.com/
+
+(Note that there was also an older iteration of this code, it got an overhaul in 2026 to add the Ex version of the event. The same permissions apply there, if you want to use the older version for some reason.)
 */
 
 OnOtherOverlap : all
 {
-	_pokepoke = SPLIT(reference.raw[0],C_BYTE1)
-	_unpokeunpoke = SPLIT(reference.raw[1],C_BYTE1)
-	_newpoke = IARRAY
-	_command = ""
+	_currentpokes = SPLIT(reference.raw[0],C_BYTE1)
+	_previouspokes = SPLIT(reference.raw[1],C_BYTE1)
+	
+	//Parallel arrays because I can't be bothered to deal with a real multidimensional array. It's easier for a situation like this!
+	_ghostlist = IARRAY
+	_scopelist = IARRAY
+	
 	_dressups = ""
 	foreach CurrentDressups; _dressup
 	{
-		if _dressups != ""; _dressups += C_BYTE1
+		if _dressups != ""; _dressups += CHR(0xFDEF)
 		_dressups += _dressup
 	}
-
-	foreach _pokepoke; _poke
+	
+	//Figure out if there's anything to respond to
+	foreach _currentpokes; _poke
 	{
-		if "Needle/0" _in_ _poke && ASEARCH(_poke,_unpokeunpoke) == -1 //If needle is poking, AND this is not in the unpoke array
+		//I've tried to set this up to optimize it speed-wise... mostly because of ghosts like Flakes of Fancy lol. Anything that we do not need to process, simply don't.
+		
+		//We don't need to process anything that's not Needle
+		if "Needle/0" !_in_ _poke; continue
+		
+		//We don't want to react to snowflakes in the ghost Flakes of Fancy
+		//This works because all of the snowflakes are in the 100-199 range, so they always start with 1 and a partial match captures them all
+		//This is to prevent Needle from repeatedly poking while snow is falling, while also still letting you poke snowmen and such
+		if "Snowflakes/1" _in_ _poke; continue
+		
+		//If it's in the previous array too, then it's not a new poke
+		if ASEARCH(_poke,_previouspokes) != -1; continue
+		
+		
+		_name = _poke
+		
+		//Strip out Needle so we just have the other ghost to look at. If the other ghost is also called Needle, then I guess we suffer.
+		if "-Needle/0" _in_ _name; _name = REPLACE(_name,"-Needle/0","")
+		else; _name = REPLACE(_name,"Needle/0-","")
+		
+		//Grab the scope number
+		_temp = SPLIT(_name,"/")
+		_scope = _temp[ARRAYSIZE(_temp) - 1]
+		
+		//Ghost names *can* contain slashes, so take some care with how we remove the scope number off the end of the name...
+		//This is probably fine?
+		_len = STRLEN(_name)
+		_name = SUBSTR(_name,0,_len - STRLEN(_scope) - 1) //The 1 is for the forward slash
+		
+		//Is it new or can it be appended?
+		_index = ASEARCH(_name,_ghostlist)
+		if _index == -1
 		{
-			//Figure out which side needle is on and get the other side as the ghost name
-			_char = ""
-			if "-Needle" _in_ _poke; _char = REPLACE(_poke,"-Needle/0","")
-			else; _char = REPLACE(_poke,"Needle/0-","")
-
-			//Some ghost names may have slashes, so make _sure_ we've got the full ghost name. And also, grab the final number
-			_char = SPLIT(_char,"/")
-			_num = ""
-			_final = ""
-			for _i = 0; _i < ARRAYSIZE(_char); _i++
-			{
-				if _i == (ARRAYSIZE(_char) - 1)
-				{
-					_num = _char[_i]
-					break
-				}
-
-				if _i != 0; _final += "/"
-				_final += _char[_i]
-			}
-
-			_command += "\![raiseother,%(_final),OnNeedlePoke,%(_num),""%(SHIORI3FW.ShellName)"",""%(_dressups)""]"
+			_ghostlist ,= _name
+			_scopelist ,= _scope
+		}
+		else
+		{
+			_scopelist[_index] += ",%(_scope)"
 		}
 	}
-	if _command != ""
+	
+	//If yes, make a response
+	if ARRAYSIZE(_ghostlist) > 0
 	{
-		"%(_command)"
-		--
+		//For each ghost, run OnNeedlePokeEx first...
+		for _i = 0; _i < ARRAYSIZE(_ghostlist); _i++
+		{
+			_ghost = Sanitize(_ghostlist[_i])
+			_scopes = _scopelist[_i]
+			_shell = Sanitize(SHIORI3FW.ShellName)
+			_dressups = Sanitize(_dressups)
+			
+			"\![raiseother,%(_ghost),OnNeedlePokeEx,%(Sanitize(_scopes)),%(_shell),%(_dressups)]"
+			
+			//Then run OnNeedlePoke for each individual scope
+			//I sort of wish I could use the raise other failure event thingem to only send this if the Ex event fails, but... I'm worried that would have problems? Plus it wouldn't match previous behavior, so...
+			foreach SPLIT(_scopes,","); _scope
+			{
+				"\![raiseother,%(_ghost),OnNeedlePoke,%(Sanitize(_scope)),%(_shell),%(_dressups)]"
+			}
+		}
+		
+		//Displayed dialogue
 		if IsBlushieShell; "uwu "
-		--
+		
 		poke
-		--
+		
 		if IsBlushieShell; " uwu"
 	}
+}
+
+//Sakurascript tags can be sanitized by surrounding the parameter with quotes, and doubling any quotes within
+Sanitize
+{
+	'"' + REPLACE(_argv[0],'"','""') + '"'
 }
 
 //I remembered it this time lol
