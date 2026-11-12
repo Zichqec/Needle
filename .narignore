@@ -2,6 +2,14 @@
 .gitattributes
 shell/*
 !shell/master/
+!shell/master/descript.txt
+!shell/master/menu_background.png
+!shell/master/menu_foreground.png
+!shell/master/surface0.png
+!shell/master/surface10.png
+!shell/master/surfaces.txt
+!shell/master/thumbnail.pna
+!shell/master/thumbnail.png
 /ghost/master/profile
 /shell/master/profile
 ghost/master/yaya_variable.cfg
